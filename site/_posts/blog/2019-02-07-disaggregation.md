@@ -8,6 +8,10 @@ comments: true
 
 <div style="text-align: justify"> 
 <p>
+Crail, from day one, has been designed to enable efficient disaggregation of temporary data. Separating compute and storage resources in a cluster is known to have several interesting advantages, in particular for distributed data processing workloads. For instance, one can now scale storage resources independently from compute resources (to provision the storage capacity that is needed), or run storage systems on specialized hardware (e.g., weak CPU but fast networks). Storage disaggregation may also reduce storage fragmentation as many application share the same physical pool of resources. 
+
+ 
+ 
 It's summer and there is some time to blog about things. This blog post is the first in a series of three posts where we illustrate Crail's raw storage performance on our 100Gbps cluster. In part I we cover Crail's DRAM storage tier, part II will be about Crail's NVMe flash storage tier, and part III will be about Crail's metadata performance. 
 </p>
 <p>
