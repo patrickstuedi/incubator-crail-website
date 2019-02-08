@@ -8,7 +8,7 @@ comments: true
 
 <div style="text-align: justify"> 
 <p>
-Crail, from day one, has been designed to enable efficient disaggregation of temporary data. Separating compute and storage resources in a cluster is known to have several interesting advantages, in particular for distributed data processing workloads. For instance, one can now scale storage resources independently from compute resources (dynamically provision the storage capacity that is needed), or run storage systems on specialized hardware (e.g., weak CPU but fast networks). Storage disaggregation is also convenient in terms of maintenenance as one can uprade compute and storage resources at different cycles. 
+Crail, from day one, has been designed to enable efficient disaggregation of temporary data. Separating compute and storage resources in a cluster is known to have several interesting advantages, in particular for distributed data processing workloads. For instance, one can now scale storage resources independently from compute resources (dynamically provision the storage capacity that is needed), give more storage resource to a compute node than what the node has available locally, or run storage systems on specialized hardware (e.g., weak CPU but fast networks) to reduce cost. Storage disaggregation is also convenient in terms of maintenenance as one can uprade compute and storage resources at different cycles. 
 
  
  
