@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Shuffle Disaggregation using remote DRAM and NVMe Flash"
+title: "Shuffle Disaggregation using RDMA accessible remote DRAM and NVMe Flash"
 author: Patrick Stuedi
 category: blog
 comments: true
