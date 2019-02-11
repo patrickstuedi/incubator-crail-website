@@ -14,7 +14,7 @@ One of the goals of Crail has always been to enable efficient storage disaggrega
 Today, data processing applications running in the cloud may implicitly use disaggregated storage through cloud storage services like S3. For instance, it is not uncommon for mapreduce workloads in the cloud to use S3 instead of HDFS for storing the input and output data. While Crail can offer high-performance disaggregated storage for input/output data as well, in this blog we specifically look at how to use Crail for efficient disaggregation of shuffle data. Generally, the arguments for disaggregation hold for any type of data including input, output and shuffle data. One aspect that makes disaggregating shuffle data particularly interesting is that it gives compute nodes access to ''infinitely'' large pools or storage resources, whereas in traditional ''non-disaggregated'' deployments a compute node is bound by its local resources.
 </p>
 <p>
-I recently read the <a href="https://www.usenix.org/conference/atc17/technical-sessions/presentation/lu">Octopus file system</a> Usenix'17 paper, where the authors show Crail performance numbers that do not match the performance we measure on our clusters. Like many other distributed systems, Crail also requires a careful system configuration and wrong or mismatching configuration settings can easily lead to poor performance. Therefore, in this blog we try to point out the key parameter settings that are necessary to obtain proper performance numbers with Crail. 
+Most of the material shown in this blog has been presented before at different venues (namely SparkSummit'17 and SparkSummit'18). 
 </p>
 </div>
 
