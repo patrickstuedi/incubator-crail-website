@@ -8,16 +8,50 @@ comments: true
 
 <div style="text-align: justify"> 
 <p>
-One of the goals of Crail has always been to enable efficient storage disaggregation for distributed data processing workloads. Separating storage from compute resources in a cluster is known to have several interesting advantages. For instance, it allows storage resources to scale independently from compute resources (dynamically provision the storage capacity that is needed), or 
- 
- Storage disaggregation is also convenient in terms of system maintenenance as one can uprade compute and storage resources at different cycles. 
- 
- 
- 
- give more storage resource to a compute node than what the node has available locally, or run storage systems on specialized hardware (e.g., weak CPU but fast networks) to reduce cost. Storage disaggregation is also convenient in terms of maintenenance as one can uprade compute and storage resources at different cycles. 
+One of the goals of Crail has always been to enable efficient storage disaggregation for distributed data processing workloads. Separating storage from compute resources in a cluster is known to have several interesting advantages. For instance, it allows storage resources to scale independently from compute resources (dynamically provision the storage capacity that is needed), or permits running storage systems on specialized hardware (e.g., weak CPU but fast networks) to reduce cost. Storage disaggregation is also simplifies system maintenenance as one can uprade compute and storage resources at different cycles. 
 </p>
 <p>
-Today, data processing applications running in the cloud may implicitly use disaggregated storage through cloud storage services like S3. For instance, it is not uncommon for mapreduce workloads in the cloud to use S3 instead of HDFS for storing the input and output data. While Crail can offer high-performance disaggregated storage for input/output data as well, in this blog we specifically look at how to use Crail for efficient disaggregation of shuffle data. Shuffle data can be large and the arguments for disaggregating shuffle data are similar to those of disaggregating input/output data. Also, if an application already keeps all of its input/output data on remote storage, it may also want to store its shuffle data remotely and completely decouple compute from storage. 
+Today, data processing applications running in the cloud may implicitly use disaggregated storage through cloud storage services like S3. For instance, it is not uncommon for mapreduce workloads in the cloud to use S3 instead of HDFS for storing the input and output data. While Crail can offer high-performance disaggregated storage for input/output data as well, in this blog we specifically look at how to use Crail for efficient disaggregation of shuffle data. Generally, the arguments for disaggregation hold for any type of data including input, output and shuffle data. What makes shuffle data particularly interesting is that 
+ 
+ 
+ 
+ However, in contrast to input/output data that already is stored in a distributed fashion, shuffle 
+ 
+ 
+ 
+ Disaggregating shuffle data, however, is particularly beneficial as ... compute nodes from being limited by their local resources.  
+ 
+ storing shuffle data in 
+ 
+ 
+ 
+ is particularly challenging (for reasons discussed later) 
+ 
+ 
+ 
+ 
+In traditional ''non-disaggregated'' deployments, shuffle data is stored local to the compute nodes and, thus, is bound by the local resources (disk, RAM, etc.) of the compute nodes. 
+
+
+
+compute nodes store shuffle data using a mix of local DRAM and disk storage. Thus, the capacity for shuffle data per compute node is bound by its local resources. 
+
+
+local to the compute nodes, thus, the storage capacity is bound
+ 
+Shuffle data can be large, 
+ 
+  While in traditional ''non-disaggregated'' deployments, a compute node is bound by its local resources (disk, RAM, etc.), in a disaggregated setup compute nodes have access to ''infinitely'' large pools or storage resources. 
+ 
+ 
+ Shuffle data differs from input/output data in that it typically is stored 
+ 
+ 
+ 
+ Shuffle data can be large and the arguments for disaggregating shuffle data are similar to those of disaggregating input/output data. 
+ 
+ 
+ Also, if an application already keeps all of its input/output data on remote storage, it may also want to store its shuffle data remotely and completely decouple compute from storage. 
  
  While in traditional ''non-disaggregated'' deployments, a compute node is bound by its local resources (disk, RAM, etc.), in a disaggregated setup compute nodes have access to ''infinitely'' large pools or storage resources. 
 </p>
