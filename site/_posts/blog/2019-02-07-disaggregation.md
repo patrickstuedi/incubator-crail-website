@@ -9,23 +9,9 @@ comments: true
 <div style="text-align: justify"> 
 <p>
 One of the goals of Crail is to enable efficient disaggregation of temporary data. Separating storage from compute resources in a cluster is known to have several interesting advantages, in particular for distributed data processing workloads. For instance, one can now scale storage resources independently from compute resources (dynamically provision the storage capacity that is needed), or give more storage resource to a compute node than what the node has available locally, or run storage systems on specialized hardware (e.g., weak CPU but fast networks) to reduce cost. Storage disaggregation is also convenient in terms of maintenenance as one can uprade compute and storage resources at different cycles. 
-
+</p>
+<p>
 Today, data processing applications running in the cloud may implicitly use disaggregated storage through cloud storage services like S3. For instance, it is not uncommon for mapreduce workloads in the cloud to use S3 instead of HDFS for storing the input and output data. While Crail can offer high-performance disaggregated storage for input/output data as well, in this blog we specifically look at how to use Crail for efficient disaggregation of shuffle data. Shuffle data can be large and the arguments for disaggregating shuffle data are similar to those of disaggregating input/output data. Also, if an application already keeps all of its input/output data on remote storage, it may also want to store its shuffle data remotely and completely decouple compute from storage. 
-
-
-Shuffle data can be large and disaggregation of shuffle data may offer smilar benefits as 
-
-
-, in some cases as large as the input data, and 
-
-
-and decoupling the storing of shuffle data from compute 
-
-
-Crail can be used as a disaggregated storage or cache for input/output data sets, 
-
- 
-It's summer and there is some time to blog about things. This blog post is the first in a series of three posts where we illustrate Crail's raw storage performance on our 100Gbps cluster. In part I we cover Crail's DRAM storage tier, part II will be about Crail's NVMe flash storage tier, and part III will be about Crail's metadata performance. 
 </p>
 <p>
 I recently read the <a href="https://www.usenix.org/conference/atc17/technical-sessions/presentation/lu">Octopus file system</a> Usenix'17 paper, where the authors show Crail performance numbers that do not match the performance we measure on our clusters. Like many other distributed systems, Crail also requires a careful system configuration and wrong or mismatching configuration settings can easily lead to poor performance. Therefore, in this blog we try to point out the key parameter settings that are necessary to obtain proper performance numbers with Crail. 
