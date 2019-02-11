@@ -10,6 +10,7 @@ comments: true
 <p>
 One of the goals of Crail is to enable efficient disaggregation of temporary data. Separating storage from compute resources in a cluster is known to have several interesting advantages, in particular for distributed data processing workloads. For instance, one can now scale storage resources independently from compute resources (dynamically provision the storage capacity that is needed), or give more storage resource to a compute node than what the node has available locally, or run storage systems on specialized hardware (e.g., weak CPU but fast networks) to reduce cost. Storage disaggregation is also convenient in terms of maintenenance as one can uprade compute and storage resources at different cycles. 
 
+Today, data processing applications running in the cloud may implicitly use disaggregated storage through cloud storage services like S3. For instance, it is not uncommon for mapreduce workloads in the cloud to use S3 instead of HDFS for storing the input and output data sets. While Crail can be used as a disaggregated storage or cache for input/output data sets, 
 
  
 It's summer and there is some time to blog about things. This blog post is the first in a series of three posts where we illustrate Crail's raw storage performance on our 100Gbps cluster. In part I we cover Crail's DRAM storage tier, part II will be about Crail's NVMe flash storage tier, and part III will be about Crail's metadata performance. 
