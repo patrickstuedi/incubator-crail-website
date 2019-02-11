@@ -11,59 +11,7 @@ comments: true
 One of the goals of Crail has always been to enable efficient storage disaggregation for distributed data processing workloads. Separating storage from compute resources in a cluster is known to have several interesting advantages. For instance, it allows storage resources to scale independently from compute resources (dynamically provision the storage capacity that is needed), or permits running storage systems on specialized hardware (e.g., weak CPU but fast networks) to reduce cost. Storage disaggregation is also simplifies system maintenenance as one can uprade compute and storage resources at different cycles. 
 </p>
 <p>
-Today, data processing applications running in the cloud may implicitly use disaggregated storage through cloud storage services like S3. For instance, it is not uncommon for mapreduce workloads in the cloud to use S3 instead of HDFS for storing the input and output data. While Crail can offer high-performance disaggregated storage for input/output data as well, in this blog we specifically look at how to use Crail for efficient disaggregation of shuffle data. Generally, the arguments for disaggregation hold for any type of data including input, output and shuffle data. One aspect that makes disaggregating shuffle data particularly interesting is that it gives compute nodes access to ''infinitely'' large pools or storage resources, whereas in traditional ''non-disaggregated'' deployments a compute node is bound by its local resources. 
-  
- 
- 
-One interesting aspect of shuffle data is that 
- 
- 
- One aspect that makes disaggregating shuffle data particularly interesting is that 
- 
- 
- current practice to store shuffle data is  
- 
- 
- 
- However, in contrast to input/output data that already is stored in a distributed fashion, shuffle 
- 
- 
- 
- Disaggregating shuffle data, however, is particularly beneficial as ... compute nodes from being limited by their local resources.  
- 
- storing shuffle data in 
- 
- 
- 
- is particularly challenging (for reasons discussed later) 
- 
- 
- 
- 
-In traditional ''non-disaggregated'' deployments, shuffle data is stored local to the compute nodes and, thus, is bound by the local resources (disk, RAM, etc.) of the compute nodes. 
-
-
-
-compute nodes store shuffle data using a mix of local DRAM and disk storage. Thus, the capacity for shuffle data per compute node is bound by its local resources. 
-
-
-local to the compute nodes, thus, the storage capacity is bound
- 
-Shuffle data can be large, 
- 
-  While in traditional ''non-disaggregated'' deployments, a compute node is bound by its local resources (disk, RAM, etc.), in a disaggregated setup compute nodes have access to ''infinitely'' large pools or storage resources. 
- 
- 
- Shuffle data differs from input/output data in that it typically is stored 
- 
- 
- 
- Shuffle data can be large and the arguments for disaggregating shuffle data are similar to those of disaggregating input/output data. 
- 
- 
- Also, if an application already keeps all of its input/output data on remote storage, it may also want to store its shuffle data remotely and completely decouple compute from storage. 
- 
- While in traditional ''non-disaggregated'' deployments, a compute node is bound by its local resources (disk, RAM, etc.), in a disaggregated setup compute nodes have access to ''infinitely'' large pools or storage resources. 
+Today, data processing applications running in the cloud may implicitly use disaggregated storage through cloud storage services like S3. For instance, it is not uncommon for mapreduce workloads in the cloud to use S3 instead of HDFS for storing the input and output data. While Crail can offer high-performance disaggregated storage for input/output data as well, in this blog we specifically look at how to use Crail for efficient disaggregation of shuffle data. Generally, the arguments for disaggregation hold for any type of data including input, output and shuffle data. One aspect that makes disaggregating shuffle data particularly interesting is that it gives compute nodes access to ''infinitely'' large pools or storage resources, whereas in traditional ''non-disaggregated'' deployments a compute node is bound by its local resources.
 </p>
 <p>
 I recently read the <a href="https://www.usenix.org/conference/atc17/technical-sessions/presentation/lu">Octopus file system</a> Usenix'17 paper, where the authors show Crail performance numbers that do not match the performance we measure on our clusters. Like many other distributed systems, Crail also requires a careful system configuration and wrong or mismatching configuration settings can easily lead to poor performance. Therefore, in this blog we try to point out the key parameter settings that are necessary to obtain proper performance numbers with Crail. 
