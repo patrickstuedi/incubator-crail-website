@@ -20,7 +20,7 @@ Recently, there has been an increased interest in disaggregating shuffle data. F
 
 ### Overview
 
-Conceptually, a disaggregated shuffle differs from a traditional shuffle in that map and reduce tasks exchange data with each other via a remote storage system (right part in the figure below), as opposed to exchanging data directly via direct communication (left part in the figure below). 
+Conceptually, a disaggregated shuffle differs from a traditional shuffle in that map and reduce tasks exchange data with each other via a remote shared storage system (right part in the figure below), as opposed to exchanging data directly via direct communication (left part in the figure below). 
 
 <br>
 <div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/overview.svg" width="680"></div>
