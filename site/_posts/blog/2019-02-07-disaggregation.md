@@ -21,7 +21,7 @@ Recently, there has been an increased interest in disaggregating shuffle data. F
 ### Overview
 
 <br>
-<div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/core_merging.svg" width="420"></div>
+<div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/overview.svg" width="450"></div>
 <br>
 
 ### Hardware Configuration
