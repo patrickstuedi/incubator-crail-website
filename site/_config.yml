@@ -1,5 +1,6 @@
 name: The Apache Crail (Incubating) Project
-url: http://crail.incubator.apache.org/ 
+url: http://127.0.0.1:4000
+#url: http://crail.incubator.apache.org/ 
 
 exclude: [bibble, README.md, Makefile]
 
