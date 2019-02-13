@@ -20,7 +20,10 @@ Recently, there has been an increased interest in disaggregating shuffle data. F
 
 ### Overview
 
-Conceptually, a disaggregated shuffle differs from a traditional shuffle in that map and reduce tasks exchange data with each other via a remote shared storage system (right part in the figure below), as opposed to exchanging data directly via direct communication (left part in the figure below). 
+Conceptually, a disaggregated shuffle differs from a traditional shuffle in that map and reduce tasks exchange data with each other via a remote shared storage system (right part in the figure below), as opposed to exchanging data directly via direct communication (left part in the figure below). For instance, in a traditional Spark deployment map tasks running on worker machines write data to a series of files, on per task and partition, and reduce task later on connect to the worker machines and fetch all the data belonging to the partition the reduce task is associated with. By using Crail as the storage platform we can organize shuffle data hierarchically and store all the data of a partition in a seperate directory (the directory is actually a ''MultiFile" as we will see later). Map tasks write their output into a series of files 
+
+
+different directories. Later, reduce tasks fetch all the data 
 
 <br>
 <div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/overview.svg" width="680"></div>
