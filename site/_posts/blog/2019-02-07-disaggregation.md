@@ -28,8 +28,7 @@ In a traditional shuffle operation, data is exchanged between map and reduce tas
 
 There are three main challenges to building an efficient disaggregated shuffle service:
 
-#### Small files 
-asdfasdf
+**Large number of small files:** The number and size of shuffle files depend on the workload, but also on the configuration, in particular on the number of map and reduce tasks in a stage of a job. The number of tasks in a job is often indirectly controlled through the partition size, the amount of data each task is operating on. Finding the optimal partition size for a job is difficult and often requires manual tuning. Generally, a small partition size and therefore a large number of small task 
 
 ### Hardware Configuration
 
