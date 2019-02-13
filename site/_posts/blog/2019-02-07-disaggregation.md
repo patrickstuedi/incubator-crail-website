@@ -20,7 +20,9 @@ Recently, there has been an increased interest in disaggregating shuffle data. F
 
 ### Overview
 
-In a traditional shuffle operation, data is exchanged between map and reduce task using direct communication (left part in the figure below). For instance, in a typical Spark deployment map tasks running on worker machines write data to a series of files  -- one per task and partition -- and reduce task later on connect to the worker machines and fetch all the data belonging to the partition the reduce task is associated with. By contrast, in a disaggregated shuffle operation, map and reduce tasks exchange data with each other via a remote shared storage system (right part in the figure below). we can organize shuffle data hierarchically and store all the data of a partition in a seperate directory (the directory is actually a ''MultiFile" as we will see later). Map tasks write their output into a series of files 
+In a traditional shuffle operation, data is exchanged between map and reduce task using direct communication (left part in the figure below). For instance, in a typical Spark deployment map tasks running on worker machines write data to a series of local files  -- one per task and partition -- and reduce tasks later on connect to all of the worker machines to fetch the data belonging to their associated partition. By contrast, in a disaggregated shuffle operation, map and reduce tasks exchange data with each other via a remote shared storage system (right part in the figure below). 
+
+we can organize shuffle data hierarchically and store all the data of a partition in a seperate directory (the directory is actually a ''MultiFile" as we will see later). Map tasks write their output into a series of files 
 
 
 different directories. Later, reduce tasks fetch all the data 
