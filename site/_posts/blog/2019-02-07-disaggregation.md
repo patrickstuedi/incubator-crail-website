@@ -26,6 +26,14 @@ In a traditional shuffle operation, data is exchanged between map and reduce tas
 <div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/overview.svg" width="680"></div>
 <br>
 
+There are three main challenges to building an efficient disaggregated shuffle service:
+
+* aasdfad
+* asdfad
+* asdfad
+
+asdfadfadfa
+
 ### Hardware Configuration
 
 The specific cluster configuration used for the experiments in this blog:
