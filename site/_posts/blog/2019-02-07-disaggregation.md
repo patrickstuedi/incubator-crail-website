@@ -28,11 +28,7 @@ In a traditional shuffle operation, data is exchanged between map and reduce tas
 
 There are three main challenges to building an efficient disaggregated shuffle service:
 
-* aasdfad
-* asdfad
-* asdfad
-
-asdfadfadfa
+#### Small files
 
 ### Hardware Configuration
 
