@@ -30,7 +30,7 @@ In a traditional shuffle operation, data is exchanged between map and reduce tas
 <div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/overview.svg" width="680"></div>
 <br>
 
-### Challenge: Large Number of Objects
+### Challenge: Large Number of Small Files
 
 
 <div style="text-align: justify"> 
@@ -39,13 +39,19 @@ One of the challenges with shuffle implementations in general is the large numbe
 </p>
 
 <p>
-Unfortunately, a small partition size often leads to a large number of small shuffle files. From an I/O performance perspective, writing and reading large numbers of small files is much more challenging than, let's say, dealing with a small number of large files. This is true in a 'non-disaggregated' shuffle operation, but even more so in a disaggregated shuffle operation where are I/O requests include both networking and storage. 
+Unfortunately, a small partition size often leads to a large number of small shuffle files. In the figure below we show the size distribution (CDF) of shuffle data generated during the execution of (a) PageRank on the Twitter graph; (b) SQL queries on a TPC-DS dataset; and (c) Cocoa machine learning on a sparse matrix dataset~\cite{cocoa}. As can be seen, the range of data is large, ranging from a few bytes (for machine learning) to a few GBs (for TPC-DS) per compute task.
 </p>
 </div>
 
 <br>
 <div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/cdf-plot.svg" width="480"></div>
 <br>
+
+<div style="text-align: justify"> 
+<p>
+From an I/O performance perspective, writing and reading large numbers of small files is much more challenging than, let's say, dealing with a small number of large files. This is true in a 'non-disaggregated' shuffle operation, but even more so in a disaggregated shuffle operation where are I/O requests include both networking and storage.  
+</p>
+</div> 
 
 **Loadbalancing:** 
 
