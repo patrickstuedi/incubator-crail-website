@@ -78,7 +78,7 @@ To mitigate the overheads of writing and reading large numbers of small data set
 
 <div style="text-align: justify"> 
 <p>
-The second optimization we use in our disaggregated Crail shuffler is efficient parallel reading of entire partitions using Crail MultiFiles. One problem with large number of small files is that it makes efficient parallel reading difficult, mainly because the small file size limits the number of in-flight read operations a reducer can issue on a single file. One may argue that we don't necessarily need to parallelize the reading of a single file, as long as we have large numbers of files we can instead read different files in parallel. Unortunately, 
+The second optimization we use in our disaggregated Crail shuffler is efficient parallel reading of entire partitions using Crail MultiFiles. One problem with large number of small files is that it makes efficient parallel reading difficult, mainly because the small file size limits the number of in-flight read operations a reducer can issue on a single file. One may argue that we don't necessarily need to parallelize the reading of a single file. As long as we have large numbers of files we can instead read different files in parallel. The problem is we eventually require the entire partition to be available at the reducer in a virtually contiguous memory area 
  
  
  Instead of having a reduce task read all of the files in their partition seperately
