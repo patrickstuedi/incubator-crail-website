@@ -29,5 +29,7 @@ set grid
 set key top left maxrows 3 samplen 2 font ",18"
 
 plot './tpcds/cdf-all.data' using 1:2 title "TPC-DS" with lines lw 4 lt 1 lc 7, \
+'./graph/cdf-all.data' using 1:2 title "PR-Twitter" with lines lw 4 lt 8 lc 6
+
+
 #'./ml/cdf-all.data' using 1:2 title "ML-Cocoa" with lines lw 4 lt 2 lc 6,\
-'./graph/cdf-all.data' using 1:2 title "PR-Twitter" with lines lw 4 lt 8 lc 5
