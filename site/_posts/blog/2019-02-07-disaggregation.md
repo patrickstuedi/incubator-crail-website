@@ -61,7 +61,7 @@ To mitigate the overheads of writing and reading large numbers of small data set
 
 
 <br>
-<div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/optimization_tasks.svg" width="400"></div>
+<div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/optimization_tasks.svg" width="380"></div>
 <br>
 
 **Loadbalancing:** 
