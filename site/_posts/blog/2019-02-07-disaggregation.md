@@ -37,7 +37,7 @@ In a traditional shuffle operation, data is exchanged between map and reduce tas
 </div>
 
 <br>
-<div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/overview.svg" width="380"></div>
+<div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/overview.svg" width="350"></div>
 <br>
 
 ### Challenge: Large Number of Small Files
@@ -78,7 +78,10 @@ To mitigate the overheads of writing and reading large numbers of small data set
 
 <div style="text-align: justify"> 
 <p>
-The second optimization we use in our disaggregated Crail shuffler is efficient parallel reading of files in partitions using Crail MultiFiles. 
+The second optimization we use in our disaggregated Crail shuffler is efficient parallel reading of entire partitions using Crail MultiFiles. One problem with large number of small files is that it makes efficient parallel reading difficult, mainly because the small file size limits the number of in-flight read operations a reducer can issue on a single file. One may argue that we don't necessarily need to parallelize the reading of a single file, as long as we have large numbers of files we can instead read different files in parallel. Unortunately, 
+ 
+ 
+ Instead of having a reduce task read all of the files in their partition seperately
 </p>
 </div>  
 
