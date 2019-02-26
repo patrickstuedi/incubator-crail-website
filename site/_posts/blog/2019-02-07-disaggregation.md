@@ -30,7 +30,7 @@ In a traditional shuffle operation, data is exchanged between map and reduce tas
 <div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/overview.svg" width="680"></div>
 <br>
 
-### Large Number of Objects
+### Challenge: Large Number of Objects
 
 
 <div style="text-align: justify"> 
@@ -42,6 +42,10 @@ One of the challenges with shuffle implementations in general is the large numbe
 Unfortunately, a small partition size often leads to a large number of small shuffle files. From an I/O performance perspective, writing and reading large numbers of small files is much more challenging than, let's say, dealing with a small number of large files. This is true in a 'non-disaggregated' shuffle operation, but even more so in a disaggregated shuffle operation where are I/O requests include both networking and storage. 
 </p>
 </div>
+
+<br>
+<div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/cdf-plot.svg" width="680"></div>
+<br>
 
 **Loadbalancing:** 
 
