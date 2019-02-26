@@ -57,7 +57,7 @@ From an I/O performance perspective, writing and reading large numbers of small 
 ### Per-core Aggregation and Parallel Fetching
 
 <br>
-<div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/optimization_tasks.svg" width="380"></div>
+<div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/optimization_tasks.svg" width="450"></div>
 <br>
 
 **Loadbalancing:** 
