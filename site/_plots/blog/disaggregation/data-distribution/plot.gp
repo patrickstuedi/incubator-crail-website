@@ -8,10 +8,10 @@ set ylabel "CDF" offset 1
 set xlabel "data size" offset 0,0.5 font ",18"
 set xrange [1:1073741824]
 
-set style line 1 lc rgb "#000000" pt 6 dt 1 lw 2 ps 0
-set style line 2 lc rgb "#000000" pt 6 dt 2 lw 2 ps 0
-set style line 3 lc rgb "#000000" pt 6 dt 4 lw 2 ps 0
-set style line 4 lc rgb "#000000"  pt 6 dt 5 lw 2 ps 0
+#set style line 1 lc rgb "#000000" pt 6 dt 1 lw 2 ps 0
+#set style line 2 lc rgb "#000000" pt 6 dt 2 lw 2 ps 0
+#set style line 3 lc rgb "#000000" pt 6 dt 4 lw 2 ps 0
+#set style line 4 lc rgb "#000000"  pt 6 dt 5 lw 2 ps 0
 
 set style increment user
 
@@ -28,6 +28,6 @@ set grid
 
 set key top left maxrows 3 samplen 2 font ",18"
 
-plot './tpcds/cdf-all.data' using 1:2 title "TPC-DS" with lines lw 4 lt 1,\
-'./ml/cdf-all.data' using 1:2 title "ML-Cocoa" with lines lw 4 lt 2,\
-'./graph/cdf-all.data' using 1:2 title "PR-Twitter" with lines lw 4 lt 8
+plot './tpcds/cdf-all.data' using 1:2 title "TPC-DS" with lines lw 4 lt 1 lc 7, \
+'./ml/cdf-all.data' using 1:2 title "ML-Cocoa" with lines lw 4 lt 2 lc 6,\
+'./graph/cdf-all.data' using 1:2 title "PR-Twitter" with lines lw 4 lt 8 lc 5
