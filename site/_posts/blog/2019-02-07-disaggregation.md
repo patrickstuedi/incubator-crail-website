@@ -56,9 +56,7 @@ From an I/O performance perspective, writing and reading large numbers of small 
 
 ### Per-core Aggregation and Parallel Fetching
 
-To mitigate the overheads of writing and reading large numbers of small data sets, the disaggregated Crail shuffle implements two simple optimizations. First, subsequent map tasks running on the same core append shuffle data to a per-core set of files. The number of files in a per-core set correspondings to the number of partitions. Logically, the files in a per core-set are actually part of different directories (one directory per partition as discussed before). 
-
-
+To mitigate the overheads of writing and reading large numbers of small data sets, the disaggregated Crail shuffle implements two simple optimizations. First, subsequent map tasks running on the same core append shuffle data to a per-core set of files. The number of files in a per-core set correspondings to the number of partitions. Logically, the files in a per core-set are actually part of different directories (one directory per partition as discussed before). For instance, the blue map tasks running on the first core all append their data to the same set of files (marked blue) distributed over the different partitions, same for the light blue and the white tasks. Consequently, the number of files in the system is depends on the number of cores and the number of partitions, but not on the number of tasks. 
 
 <br>
 <div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/optimization_tasks.svg" width="380"></div>
