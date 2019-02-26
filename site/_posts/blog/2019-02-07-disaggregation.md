@@ -40,9 +40,7 @@ One of the challenges with shuffle implementations in general is the large numbe
 
 <p>
 Unfortunately, a small partition size often leads to a large number of small shuffle files. As an illustration, we
-performed a simple experiment where we measured the size distribution of Spark shuffle (and broadcast) files of individual tasks when executing (a) PageRank on the Twitter graph; (b) SQL queries on a TPC-DS dataset; and (c) Cocoa machine learning on
-a sparse matrix dataset. As shown in the figure below, the range of shuffle data is large, ranging from a few
-bytes (for machine learning) to a few GBs (for TPC-DS) per compute task.
+performed a simple experiment where we measured the size distribution of Spark shuffle (and broadcast) files of individual tasks when executing (a) PageRank on the Twitter graph, and (b) SQL queries on a TPC-DS dataset. As shown in the figure below, the range of shuffle data is large, ranging from a few bytes (for machine learning) to a few GBs (for TPC-DS) per compute task.
 </p>
 </div>
 
