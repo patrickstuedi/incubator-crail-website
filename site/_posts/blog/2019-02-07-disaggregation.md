@@ -20,15 +20,28 @@ Recently, there has been an increased interest in disaggregating shuffle data. F
 
 ### Overview
 
+<div style="text-align: justify"> 
+<p>
 In a traditional shuffle operation, data is exchanged between map and reduce task using direct communication (left part in the figure below). For instance, in a typical Spark deployment map tasks running on worker machines write data to a series of local files  -- one per task and partition -- and reduce tasks later on connect to all of the worker machines to fetch the data belonging to their associated partition. By contrast, in a disaggregated shuffle operation, map and reduce tasks exchange data with each other via a remote shared storage system (right part in the figure below). In the case of Crail, shuffle data is organized hierarchically, meaning, each partition is mapped to a separate directory (the directory is actually a ''MultiFile" as we will see later). Map tasks dispatch data tuples to files in different partitions based on a key, and reduce tasks eventually read all the data in a given partition or directory (each reduce task is associated with exactly one partition). 
+</p>
+</div>
 
 <br>
 <div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/overview.svg" width="680"></div>
 <br>
 
-There are three main challenges to building an efficient disaggregated shuffle service:
+### Large Number of Objects
 
-**Large number of small files:** The number and size of shuffle files depend on the workload, but also on the configuration, in particular on the number of map and reduce tasks in a stage of a job. The number of tasks in a job is often indirectly controlled through the partition size specifying the amount of data each task is operating on. Finding the optimal partition size for a job is difficult and often requires manual tuning. What you want is a partition size small enough to generate enough tasks to exploit all the parallelism available in the cluster. Also, a large number of small task helps to mitigate stragglers, a major issue for distributed data processing frameworks. Unfortunately, a small partition size often leads to a large number of small shuffle files. From an I/O performance perspective, writing and reading large numbers of small files is much more challenging than, let's say, dealing with a small number of large files. This is true in a 'non-disaggregated' shuffle operation, but even more so in a disaggregated shuffle operation where are I/O requests include both networking and storage. 
+
+<div style="text-align: justify"> 
+<p>
+One of the challenges with shuffle implementations in general is the large number of objects they have to deal with. The number and size of shuffle files depend on the workload, but also on the configuration, in particular on the number of map and reduce tasks in a stage of a job. The number of tasks in a job is often indirectly controlled through the partition size specifying the amount of data each task is operating on. Finding the optimal partition size for a job is difficult and often requires manual tuning. What you want is a partition size small enough to generate enough tasks to exploit all the parallelism available in the cluster. Also, a large number of small task helps to mitigate stragglers, a major issue for distributed data processing frameworks. 
+</p>
+
+<p>
+Unfortunately, a small partition size often leads to a large number of small shuffle files. From an I/O performance perspective, writing and reading large numbers of small files is much more challenging than, let's say, dealing with a small number of large files. This is true in a 'non-disaggregated' shuffle operation, but even more so in a disaggregated shuffle operation where are I/O requests include both networking and storage. 
+</p>
+</div>
 
 **Loadbalancing:** 
 
