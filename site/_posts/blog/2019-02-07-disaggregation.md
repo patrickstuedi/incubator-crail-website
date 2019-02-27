@@ -81,7 +81,7 @@ To mitigate the overheads of writing and reading large numbers of small data set
 The second optimization we use in our disaggregated Crail shuffler is efficient parallel reading of entire partitions using Crail MultiFiles. One problem with large number of small files is that it makes efficient parallel reading difficult, mainly because the small file size limits the number of in-flight read operations a reducer can issue on a single file. One may argue that we don't necessarily need to parallelize the reading of a single file. As long as we have large numbers of files we can instead read different files in parallel. The reason this is inefficient is because we want the entire partition to be available at the reducer in a virtually contiguous memory area to simplify sorting. If we were to read multiple files concurrently we either have to temporarily store the receiving data of a file and later copy the data to right place within the contiguous memory area, or if we want to avoid copying data we let the different file readers directly receive the data at the correct offset which leads to random writes cache thrashing at the reducer. Both, copying data and cache thrashing are a concern at a network speed of 100 Gb/s or more. 
 </p>
 <p>
-Crail Multifiles offer zero-copy parallel reading of large numbers of files in a sequential manner. From the prespective of a map task MultiFiles are flat directories consisting of files belonging to different per-core sets. Map tasks operate on individual files inside a Crail MultiFile. From a reducer perspective, a MultFile look like a large file that can be read sequentially using many in-flight operations. For instance, the following shows how a reduce task during a Crail shuffle operation reads a partition from remote storage. 
+Crail Multifiles offer zero-copy parallel reading of large numbers of files in a sequential manner. From the prespective of a map task MultiFiles are flat directories consisting of files belonging to different per-core sets. From a reducer perspective, a MultFile look like a large file that can be read sequentially using many in-flight operations. For instance, the following shows how a reduce task during a Crail shuffle operation reads a partition from remote storage. 
 </p>
 </div>  
 ```
@@ -94,7 +94,7 @@ while (stream.read(buf) > 0);
 ``` 
 <div style="text-align: justify"> 
 <p>
-Internally, a MultiFiles manages multiple streams to different files and maintains a fixed number of active in-flight operations at all times (except in the end when the stream reaches its end). The number of in-flight operations is controlled via the batch size parameter which is set to 16 in the above example. 
+Internally, a MultiFile manages multiple streams to different files and maintains a fixed number of active in-flight operations at all times (except in the end when the stream reaches its end). The number of in-flight operations is controlled via the batch size parameter which is set to 16 in the above example. 
 </p>
 </div>  
 
