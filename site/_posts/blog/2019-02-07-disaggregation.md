@@ -97,13 +97,13 @@ while (stream.read(buf) > 0);
 Internally, a MultiFile manages multiple streams to different files and maintains a fixed number of active in-flight operations at all times (except in the end when the stream reaches its end). The number of in-flight operations is controlled via the batch size parameter which is set to 16 in the above example. 
 </p>
 <p>
- <strong>Comparison with Riffle</strong>: In contrast to Riffle, the Crail shuffler does not merge files at the map stage. There are two reasons for this. First, even though Riffle shows how to overlap merge operations with map tasks, there is always a certain number of merge operations at the end of a map task that cannot be hidden effectively, which delays the map phase. Second, in contrast to Riffle which assumes commodity hardware with low network bandwidth and low metadata throughput (file "open" requests per second), the Crail shuffler is built on top of Crail which offers high bandwidth and high metadata throughput implemented over fast network and storage hardware. As shown in previous posts, Crail supports millions of file metadata operations per second and provides a random read bandwidth for small I/O sizes that is close 100Gb/s. At such a storage performance, any optimization involving the CPU is typically just adding overhead. For instance, the Crail shuffler also does not compress shuffle date as compression rates of common compression libraries are slower than the read/write Crail I/O bandwidth. 
+ <strong>Comparison with Riffle</strong>: In contrast to Riffle, the Crail shuffler does not merge files at the map stage. There are two reasons for this. First, even though Riffle shows how to overlap merge operations with map tasks, there is always a certain number of merge operations at the end of a map task that cannot be hidden effectively, which delays the map phase. Second, in contrast to Riffle which assumes commodity hardware with low network bandwidth and low metadata throughput (file "open" requests per second), the Crail shuffler is built on top of Crail which offers high bandwidth and high metadata throughput implemented over fast network and storage hardware. As shown in previous posts, Crail supports millions of file metadata operations per second and provides a random read bandwidth for small I/O sizes that is close 100Gb/s. At such a storage performance, any optimization involving the CPU is typically just adding overhead. For instance, the Crail shuffler also does not compress shuffle data as compression rates of common compression libraries (LZ4, Snappy, etc.) are slower than the read/write bandwidth of Crail. 
 </p>
 </div>  
 
 ### Loadbalancing and Skew
 
-One known problem in traditiona
+One known problem with data shuffling is data skew leading to a high variation in 
 
 ### Hardware Configuration
 
