@@ -97,7 +97,7 @@ while (stream.read(buf) > 0);
 Internally, a MultiFile manages multiple streams to different files and maintains a fixed number of active in-flight operations at all times (except in the end when the stream reaches its end). The number of in-flight operations is controlled via the batch size parameter which is set to 16 in the above example. 
 </p>
 <p>
- <bold>Comparison with Riffle</bold>: In contrast to Riffle, the Crail shuffler does not merge files at the map stage. 
+ <strong>Comparison with Riffle</strong>: In contrast to Riffle, the Crail shuffler does not merge files at the map stage. 
 </p>
 </div>  
 
