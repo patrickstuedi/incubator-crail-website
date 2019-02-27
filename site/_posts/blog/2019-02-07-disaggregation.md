@@ -106,7 +106,12 @@ The Crail shuffler also differs from Riffle with regard to how file indexes are 
 
 ### Loadbalancing and Skew
 
-One known problem with data shuffling is data skew. Data skew leads 
+<div style="text-align: justify"> 
+<p>
+One known problem with data shuffling is data skew. Task runtime variance is caused by skew. Tasks may be assigned dif-ferent amounts of data due to data skew in the partitioning. Such skew occurs intrinsically in many real-world datasets, makingit hard to create well-balanced partitions. For example, a web dataset may have millions of records referring to a website, map-reduce algo-rithms have popular keys, and social networking and graph datasetshave high degree vertices. Tasks may also suffer from compute skew, wherein the execution time depends on the data, regardless of its size. For instance, an algorithm may do more processing on some inputsor selectively filter data. Besides data and compute skew, taskruntime can also be affected by machine skew, for example, hetero-geneous or faulty machines.
+ </p>
+</div>  
+
 
 ### Hardware Configuration
 
