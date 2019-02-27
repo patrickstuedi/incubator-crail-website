@@ -97,7 +97,7 @@ while (stream.read(buf) > 0);
 Internally, a MultiFile manages multiple streams to different files and maintains a fixed number of active in-flight operations at all times (except in the end when the stream reaches its end). The number of in-flight operations is controlled via the batch size parameter which is set to 16 in the above example. 
 </p>
 <p>
- <strong>Comparison with Riffle</strong>: In contrast to Riffle, the Crail shuffler does not merge files at the map stage. 
+ <strong>Comparison with Riffle</strong>: In contrast to Riffle, the Crail shuffler does not merge files at the map stage. There are two reasons for this. First, even though Riffle shows how to overlap merge operations with executing map tasks, there is always a certain number of merge operations in the end that cannot be hidden effectively, which delays the map phase. Second, in contrast to Riffle which assumes commodity hardware with low network bandwidth and low metadata throughput (file "open" requests per second), Crail offers high bandwidth and high metadata throughput over fast network and storage hardware. As shown in previous posts, Crail supports millions of file metadata operations per second and provides a random read bandwidth for small I/O sizes that is close 100Gb/s. 
 </p>
 </div>  
 
