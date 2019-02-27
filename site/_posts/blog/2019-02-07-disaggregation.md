@@ -98,8 +98,9 @@ Internally, a MultiFile manages multiple streams to different files and maintain
 </p>
 </div>  
 
+### Loadbalancing and Skew
 
-**Loadbalancing:** 
+
 
 ### Hardware Configuration
 
