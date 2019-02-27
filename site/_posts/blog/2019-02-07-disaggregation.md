@@ -78,12 +78,18 @@ To mitigate the overheads of writing and reading large numbers of small data set
 
 <div style="text-align: justify"> 
 <p>
-The second optimization we use in our disaggregated Crail shuffler is efficient parallel reading of entire partitions using Crail MultiFiles. One problem with large number of small files is that it makes efficient parallel reading difficult, mainly because the small file size limits the number of in-flight read operations a reducer can issue on a single file. One may argue that we don't necessarily need to parallelize the reading of a single file. As long as we have large numbers of files we can instead read different files in parallel. The reason this is inefficient is because we want the entire partition to be available at the reducer in a virtually contiguous memory area to simplify sorting. If we were to read multiple files concurrently we either have to temporarily store the receiving data of a file and later copy the data to right place within the contiguous memory area, or if we want to avoid copying data we let the different file readers directly receive the data at the correct offset which leads to random writes cache thrashing at the reducer. Both, copying data and cache thrashing are a concern considering a network speed of 100 Gb/s or more. 
+The second optimization we use in our disaggregated Crail shuffler is efficient parallel reading of entire partitions using Crail MultiFiles. One problem with large number of small files is that it makes efficient parallel reading difficult, mainly because the small file size limits the number of in-flight read operations a reducer can issue on a single file. One may argue that we don't necessarily need to parallelize the reading of a single file. As long as we have large numbers of files we can instead read different files in parallel. The reason this is inefficient is because we want the entire partition to be available at the reducer in a virtually contiguous memory area to simplify sorting. If we were to read multiple files concurrently we either have to temporarily store the receiving data of a file and later copy the data to right place within the contiguous memory area, or if we want to avoid copying data we let the different file readers directly receive the data at the correct offset which leads to random writes cache thrashing at the reducer. Both, copying data and cache thrashing are a concern at a network speed of 100 Gb/s or more. 
 </p>
 <p>
-In our Crail shuffle implementation we leverage Crail MultiFiles to store shuffle partitions. From the prespective of a map task MultiFiles are flat directories consisting of files belonging to different per-core sets. Map tasks operate on individual files by appending data to it. From a reducer perspective, a MultFile look like a large file that can be read sequentially using many in-flight operations. 
+Crail Multifiles offer zero-copy parallel reading of large numbers of files in a sequential manner. From the prespective of a map task MultiFiles are flat directories consisting of files belonging to different per-core sets. Map tasks operate on individual files inside a Crail MultiFile. From a reducer perspective, a MultFile look like a large file that can be read sequentially using many in-flight operations. For instance, a 
 </p>
 </div>  
+```
+CrailStore fs = CrailStore.newInstance();
+CrailMultiFile multiFile = fs.lookup("/shuffle/partition1").get().asMultiFile();
+CrailBufferedInputStream stream = multiFile.getMultiStream(batch);
+while (stream.read(buf) > 0);
+```    
 
 **Loadbalancing:** 
 
