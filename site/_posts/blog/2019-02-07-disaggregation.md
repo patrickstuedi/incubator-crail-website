@@ -108,12 +108,7 @@ The Crail shuffler also differs from Riffle with regard to how file indexes are 
 
 <div style="text-align: justify"> 
 <p>
-Shuffle operations are essentially barriers between compute stages, which makes shuffle operations sensitive to task variation. For instance, the reduce phase typically cannot start before the entire map phase has finished. 
-
-One known problem with data shuffling is task runtime variation. 
- 
- 
-One known problem with data shuffling is skew. Task runtime variance is caused by skew. Tasks may be assigned different amounts of data due to data skew in the partitioning. Such skew occurs intrinsically in many real-world datasets, making it hard to create well-balanced partitions. For example, a web dataset may have millions of records referring to a website, map-reduce algo-rithms have popular keys, and social networking and graph datasetshave high degree vertices. Tasks may also suffer from compute skew, wherein the execution time depends on the data, regardless of its size. For instance, an algorithm may do more processing on some inputsor selectively filter data. Besides data and compute skew, taskruntime can also be affected by machine skew, for example, hetero-geneous or faulty machines.
+Shuffle operations, being essentially barries between compute stages, are highly sensitive to task runtime variations. One reason for task runtime variation is that reduce tasks may be assigned different amounts of data. This can happen due to skew in the input data, but also due to machine skew. For example, in a heterogeneous cluster some machines are able to process more map tasks than others, thus, generating more data. While task 
  </p>
 </div>  
 
