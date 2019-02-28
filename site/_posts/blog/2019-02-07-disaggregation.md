@@ -108,7 +108,17 @@ The Crail shuffler also differs from Riffle with regard to how file indexes are 
 
 <div style="text-align: justify"> 
 <p>
-Shuffle operations, being essentially barriers between compute stages, are highly sensitive to task runtime variations. Runtime variations may be caused by skew in the input data which leads to variations in the partitions size, meaning, different reduce tasks get assigned different amounts of data. Dealing with data skew is tricky and typically requires re-paritioning of the data. Another cause of task runtime variation is machine skew. For example, in a heterogeneous cluster some machines are able to process more map tasks than others, thus, generating more data. In traditional non-disaggregated shuffle operations, machines hogging large amounts of shuffle data after the map phase quickly become the bottleneck during the all-to-all network transfer phase. One way to deal with this problem is through weighted fair scheduling of network transfers, as shown <a href="https://dl.acm.org/citation.cfm?id=2018448">here</a>. But doing so requires global knowledge of the amounts of data to transfer and also demands fine grained scheduling. 
+Shuffle operations, being essentially barriers between compute stages, are highly sensitive to task runtime variations. Runtime variations may be caused by skew in the input data which leads to variations in the partitions size, meaning, different reduce tasks get assigned different amounts of data. Dealing with data skew is tricky and typically requires re-paritioning of the data. Another cause of task runtime variation is machine skew. For example, in a heterogeneous cluster some machines are able to process more map tasks than others, thus, generating more data. In traditional non-disaggregated shuffle operations, machines hogging large amounts of shuffle data after the map phase quickly become the bottleneck during the all-to-all network transfer phase. 
+</p>
+</div>
+ 
+<br>
+<div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/machine_skew.svg" width="380"></div>
+<br>
+
+<div style="text-align: justify"> 
+<p>
+One way to deal with this problem is through weighted fair scheduling of network transfers, as shown <a href="https://dl.acm.org/citation.cfm?id=2018448">here</a>. But doing so requires global knowledge of the amounts of data to transfer and also demands fine grained scheduling. 
 </p>
 <p>
 In contrast to a traditional shuffle, the Crail disaggregated shuffle naturally is more reobust against machine skew. Even though some machines generate more shuffle data than others during the map phase, the resulting temporary data residing on disaggregated storage is still evenly distributed across storage servers. This is because shuffle data stored on Crail is chopped up in small blocks that get distributed across the servers. Naturally, the different storage servers are serving roughly equal amounts of data at the beginning of the reduce phase. 
