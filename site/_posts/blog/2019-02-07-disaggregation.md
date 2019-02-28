@@ -112,6 +112,7 @@ Shuffle operations, being essentially barriers between compute stages, are highl
 </p>
 <p>
 In contrast to a traditional shuffle, the Crail disaggregated shuffle naturally is more reobust against machine skew. Even though some machines generate more shuffle data than others during the map phase, the resulting temporary data residing on disaggregated storage is still evenly distributed across storage servers. This is because shuffle data stored on Crail is chopped up in small blocks that get distributed across the servers. Naturally, the different storage servers are serving roughly equal amounts of data at the beginning of the reduce phase. 
+ </p>
 </div>  
 
 
