@@ -108,7 +108,7 @@ The Crail shuffler also differs from Riffle with regard to how file indexes are 
 
 <div style="text-align: justify"> 
 <p>
-Shuffle operations, being essentially barries between compute stages, are highly sensitive to task runtime variations. One reason for task runtime variation is that reduce tasks may be assigned different amounts of data. This can happen due to skew in the input data, but also due to machine skew. For example, in a heterogeneous cluster some machines are able to process more map tasks than others, thus, generating more data. While task 
+Shuffle operations, being essentially barries between compute stages, are highly sensitive to task runtime variations. One reason for task runtime variation is that reduce tasks may be assigned different amounts of data due to skew in the input data. Dealing with data skew is tricky and typically requires re-paritioning of the data. Another cause of task runtime variation is machine skew. For example, in a heterogeneous cluster some machines are able to process more map tasks than others, thus, generating more data. In a traditional non-disaggregated shuffle operations, such fast machines hogging large data sets after the map phase quickly become the bottleneck during network transfers. 
  </p>
 </div>  
 
