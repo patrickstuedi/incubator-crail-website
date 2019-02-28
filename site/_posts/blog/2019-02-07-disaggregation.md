@@ -122,6 +122,10 @@ One way to deal with this problem is through weighted fair scheduling of network
  </p>
 </div>  
 
+<br>
+<div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/machine_skew_crail.svg" width="480"></div>
+<br>
+
 
 ### Hardware Configuration
 
