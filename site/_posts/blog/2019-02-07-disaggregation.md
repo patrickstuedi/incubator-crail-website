@@ -126,6 +126,11 @@ One way to deal with this problem is through weighted fair scheduling of network
 <div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/machine_skew_crail.svg" width="520"></div>
 <br>
 
+<div style="text-align: justify"> 
+<p>
+One may argue that chopping shuffle data up into blocks and transferring them over the network does not come for free. However, as it turns out, it does almost come free. The bandwidth of the Spark I/O pipeline in a map task running on a single core is dominated by the serialization speed. The serialization speed depends on the serializer (e.g., Java serializer, Kryo, etc.) and on the workload and the object types that need to be serialized. In our measurements we found that even for rather simple object types, like byte arrays, the serialization bandwidth of Kryo -- one of the faster serializers available -- was in the order of a few GB/s per core. 
+</p>
+</div>
 
 ### Hardware Configuration
 
