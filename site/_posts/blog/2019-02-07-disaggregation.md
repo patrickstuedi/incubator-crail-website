@@ -113,7 +113,7 @@ Shuffle operations, being essentially barriers between compute stages, are highl
 </div>
  
 <br>
-<div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/machine_skew.svg" width="380"></div>
+<div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/machine_skew.svg" width="480"></div>
 <br>
 
 <div style="text-align: justify"> 
