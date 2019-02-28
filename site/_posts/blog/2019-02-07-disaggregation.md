@@ -113,7 +113,7 @@ Shuffle operations, being essentially barriers between compute stages, are highl
 </div>
  
 <br>
-<div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/machine_skew.svg" width="480"></div>
+<div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/machine_skew.svg" width="580"></div>
 <br>
 
 <div style="text-align: justify"> 
@@ -123,7 +123,7 @@ One way to deal with this problem is through weighted fair scheduling of network
 </div>  
 
 <br>
-<div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/machine_skew_crail.svg" width="480"></div>
+<div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/machine_skew_crail.svg" width="580"></div>
 <br>
 
 
