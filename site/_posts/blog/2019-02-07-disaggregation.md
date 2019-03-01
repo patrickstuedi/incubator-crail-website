@@ -134,32 +134,19 @@ One may argue that chopping shuffle data up into blocks and transferring them ov
 
 <div style="text-align: justify"> 
 <p>
-<strong>Loadbalancing:</strong> While shuffle disaggregation mitigates machine skew by distributing data evenly across storage servers, the set of storage blocks read by clients (reduce tasks) at a given time may not always be evenly distributed among the servers. For instance, as shown in the figure below (left part), one of the servers concurrently serves two clients, while the other server only serves one client. Over time these variation even out, but at a given time different clients may get different bandwidth from disaggregated storage depending on the server they are connected to and the number of concurrent network transfers at the server. 
- 
- 
- the file blocks of two different files read concurrently may reside on the same server, 
- 
- Clients (e.g., reduce tasks) sharing server bandwidth with other clients 
- 
- actual active client connections per storage server at a given time might be evenly distributed. 
- 
- not always be evenly distributed among the storage servers. 
- 
- 
- Shuffle disaggregation mitigates machine skew by evenly distributing shuffle data across storage servers, but careful loadbalancing of network transfers is still required. Depending on the distribution of storage blocks and the access pattern 
- 
- 
- Consider the example shown on the left side in the figure below, where three files are read concurrently by different reduce task. Assume the reduce task are running on different machines so there is not sharing of NIC bandwidth at the receiver. 
-
-</p>
-<p>
-Note that Crail disaggregated storage may be provided by a few highly dense storage nodes (e.g., a high density flash enclosure) or by a larger group of storage servers exposing their local DRAM or flash. we will discuss different deployment modes on Crail disaggregated storage in the next blog post. 
+<strong>Loadbalancing:</strong> While shuffle disaggregation mitigates machine skew by distributing data evenly across storage servers, the set of storage blocks read by clients (reduce tasks) at a given time may not always be evenly distributed among the servers. For instance, as shown in the figure below (left part), one of the servers concurrently serves two clients, while the other server only serves one client. Consequently, the bandwidth of the first two clients it bottlenecked by the server whereas the bandwidth of last client is not. To mitigate the effect of uneven allocation of bandwidth, it is important to keep a sufficiently large queue depth at the clients. 
 </p>
 </div>
 
 <br>
 <div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/loadbalancing.svg" width="520"></div>
 <br>
+
+<div style="text-align: justify"> 
+<p>
+Note that Crail disaggregated storage may be provided by a few highly dense storage nodes (e.g., a high density flash enclosure) or by a larger group of storage servers exposing their local DRAM or flash. we will discuss different deployment modes on Crail disaggregated storage in the next blog post. 
+</p>
+</div>
 
 ### Hardware Configuration
 
