@@ -134,9 +134,7 @@ One may argue that chopping shuffle data up into blocks and transferring them ov
 
 <div style="text-align: justify"> 
 <p>
-<strong>Loadbalancing:</strong> While shuffle disaggregation mitigates machine skew by distributing data evenly across storage servers, the set of active client connections at a given time may still be unevenly distributed among the storage servers. This is because the set of storage blocks read by clients at a given time is not always evenly distributed. 
- 
- For instance, as shown in the figure below (left part), one of the servers serves two clients ( 
+<strong>Loadbalancing:</strong> While shuffle disaggregation mitigates machine skew by distributing data evenly across storage servers, the set of storage blocks read by clients (reduce tasks) at a given time may not always be evenly distributed among the servers. For instance, as shown in the figure below (left part), one of the servers concurrently serves two clients, while the other server only serves one client. Over time these variation even out, but at a given time different clients may get different bandwidth from disaggregated storage depending on the server they are connected to and the number of concurrent network transfers at the server. 
  
  
  the file blocks of two different files read concurrently may reside on the same server, 
