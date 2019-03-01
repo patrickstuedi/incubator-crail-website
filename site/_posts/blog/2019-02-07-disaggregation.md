@@ -136,6 +136,10 @@ One may argue that chopping shuffle data up into blocks and transferring them ov
 
 During both shuffle write and shuffle read phases, large numbers of tasks running on different machines in a compute cluster concurrently interact with disaggregated storage. Crail disaggregated storage may be provided by a few highly dense storage nodes (e.g., a high density flash enclosure) or by a larger group of storage servers exposing their local DRAM or flash (we will discuss different deployment modes on Crail disaggregated storage in the next blog post). In either case, it is important to properly load balance network transfers across the different storage servers. 
 
+<br>
+<div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/loadbalancing.svg" width="450"></div>
+<br>
+
 ### Hardware Configuration
 
 The specific cluster configuration used for the experiments in this blog:
