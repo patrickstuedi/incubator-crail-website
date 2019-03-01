@@ -132,6 +132,10 @@ One may argue that chopping shuffle data up into blocks and transferring them ov
 </p>
 </div>
 
+### Loadbalancing 
+
+During both shuffle write and shuffle read phases, large numbers of tasks running on different machines in a compute cluster concurrently interact with disaggregated storage. 
+
 ### Hardware Configuration
 
 The specific cluster configuration used for the experiments in this blog:
