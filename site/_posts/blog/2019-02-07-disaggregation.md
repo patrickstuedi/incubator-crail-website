@@ -144,7 +144,7 @@ One may argue that chopping shuffle data up into blocks and transferring them ov
 
 <div style="text-align: justify"> 
 <p>
-Note that Crail disaggregated storage may be provided by a few highly dense storage nodes (e.g., a high density flash enclosure) or by a larger group of storage servers exposing their local DRAM or flash. we will discuss different deployment modes on Crail disaggregated storage in the next blog post. 
+Note that Crail disaggregated storage may be provided by a few highly dense storage nodes (e.g., a high density flash enclosure) or by a larger group of storage servers exposing their local DRAM or flash. We will discuss different deployment modes of Crail disaggregated storage in the next blog post. 
 </p>
 </div>
 
