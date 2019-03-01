@@ -20,7 +20,7 @@ Today, data processing applications running in the cloud may implicitly use disa
 <br>
  
 <p>
-Generally, the arguments for disaggregation hold for any type of data including input, output and shuffle data. One aspect that makes disaggregation of shuffle data particularly interesting is that it gives compute nodes participating a shuffle phase access to ''infinitely'' large pools or storage resources, whereas in traditional ''non-disaggregated'' deployments the amount of shuffle data per compute node is bound by local resources.
+Generally, the arguments for disaggregation hold for any type of data including input, output and shuffle data. One aspect that makes disaggregation of shuffle data particularly interesting is that compute nodes generating shuffle data now have access to ''infinitely'' large pools or storage resources, whereas in traditional ''non-disaggregated'' deployments the amount of shuffle data per compute node is bound by local resources.
 </p>
 
 <p>
