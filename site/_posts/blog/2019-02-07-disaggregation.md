@@ -134,11 +134,11 @@ One may argue that chopping shuffle data up into blocks and transferring them ov
 
 <div style="text-align: justify"> 
 <p>
-<strong>Loadbalancing:</strong> Shuffle disaggregation mitigates machine skew by evenly distributing shuffle data across storage servers, but careful loadbalancing of network transfers is still required. Consider the example shown on the left side in the figure below, where three files are read concurrently by different reduce task
- 
- 
- 
- During both shuffle write and shuffle read phases, large numbers of tasks running on different machines in a compute cluster concurrently interact with disaggregated storage. Crail disaggregated storage may be provided by a few highly dense storage nodes (e.g., a high density flash enclosure) or by a larger group of storage servers exposing their local DRAM or flash (we will discuss different deployment modes on Crail disaggregated storage in the next blog post). In either case, it is important to properly load balance network transfers across the different storage servers. 
+<strong>Loadbalancing:</strong> Shuffle disaggregation mitigates machine skew by evenly distributing shuffle data across storage servers, but careful loadbalancing of network transfers is still required. Consider the example shown on the left side in the figure below, where three files are read concurrently by different reduce task. Assume the reduce task are running on different machines so there is not sharing of NIC bandwidth at the receiver. 
+
+</p>
+<p>
+Note that Crail disaggregated storage may be provided by a few highly dense storage nodes (e.g., a high density flash enclosure) or by a larger group of storage servers exposing their local DRAM or flash. we will discuss different deployment modes on Crail disaggregated storage in the next blog post. 
 </p>
 </div>
 
