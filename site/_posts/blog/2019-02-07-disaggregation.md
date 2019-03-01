@@ -134,7 +134,24 @@ One may argue that chopping shuffle data up into blocks and transferring them ov
 
 <div style="text-align: justify"> 
 <p>
-<strong>Loadbalancing:</strong> Shuffle disaggregation mitigates machine skew by evenly distributing shuffle data across storage servers, but careful loadbalancing of network transfers is still required. Consider the example shown on the left side in the figure below, where three files are read concurrently by different reduce task. Assume the reduce task are running on different machines so there is not sharing of NIC bandwidth at the receiver. 
+<strong>Loadbalancing:</strong> While shuffle disaggregation mitigates machine skew by distributing data evenly across storage servers, the set of active client connections at a given time may still be unevenly distributed among the storage servers. This is because the set of storage blocks read by clients at a given time is not always evenly distributed. 
+ 
+ For instance, as shown in the figure below (left part), one of the servers serves two clients ( 
+ 
+ 
+ the file blocks of two different files read concurrently may reside on the same server, 
+ 
+ Clients (e.g., reduce tasks) sharing server bandwidth with other clients 
+ 
+ actual active client connections per storage server at a given time might be evenly distributed. 
+ 
+ not always be evenly distributed among the storage servers. 
+ 
+ 
+ Shuffle disaggregation mitigates machine skew by evenly distributing shuffle data across storage servers, but careful loadbalancing of network transfers is still required. Depending on the distribution of storage blocks and the access pattern 
+ 
+ 
+ Consider the example shown on the left side in the figure below, where three files are read concurrently by different reduce task. Assume the reduce task are running on different machines so there is not sharing of NIC bandwidth at the receiver. 
 
 </p>
 <p>
