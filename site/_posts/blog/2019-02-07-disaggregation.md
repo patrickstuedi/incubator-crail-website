@@ -152,6 +152,8 @@ Note that Crail disaggregated storage may be provided by a few highly dense stor
 
 <div style="text-align: justify"> 
 <p> Let's look at some performance data. In the first experiment we look at a sipmle map-reduce job sorting 200G of data on a 8 node cluster. We divide the cluster artificially into two parts, one exclusively used for storage running Crail, and one exclusively used to run the Spark worker nodes and the driver. Details on the cluster hardware are given below:
+</p>
+</div>
 
 * Cluster
   * 8 node OpenPower cluster (for Crail)
@@ -167,9 +169,6 @@ Note that Crail disaggregated storage may be provided by a few highly dense stor
   * Crail 1.0, internal version 2842
   * Alluxio 1.4
   * RAMCloud commit f53202398b4720f20b0cdc42732edf48b928b8d7
-  
-  </p>
-</div>
 
 <br>
 <div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/terasort.svg" width="350"></div>
