@@ -1,0 +1,26 @@
+#set term svg size 640,300 font "Times-Roman, 13"
+set term svg size 640,300 font "Times-Roman, 16"
+
+set output "terasort.svg"
+
+set yrange [0:120]
+set ylabel "Runtime (seconds)"
+set grid ytics mytic
+set key left
+
+set style line 1 lc rgb "#000000" pt 6 lw 1.5 ps 0
+set style line 2 lc rgb "#000000" pt 6 lw 1.5 ps 0
+set style line 3 lc rgb "#000000" pt 6 lw 1.5 ps 0
+set style line 4 lc rgb "#000000"  pt 6 lw 1.5 ps 0
+
+#set style increment user
+set ytics  0,20,120
+#set ytics add ("1us" 1, "10us" 10, "100us" 100, "1ms" 1000, "10ms" 10000, "" 100000, "" 1000000, "10s" 10000000, "100s" 100000000, "" 1000000000, "" 1e10)
+#set xtics ("" 0, "" 0.5, "colocated" 1, "disaggregated" 1.5, "colocated" 2, "disaggregated" 2.5, "colocated" 3, "disaggregated" 3.5) rotate by 45 right
+
+plot "colocated.dat" using ($1):($2+$3):(0.25)  title "Reduce" with boxes fill solid lc "blue",\
+"colocated.dat" using ($1):($2):(0.25) title "Map" with boxes fill solid lc "red" ,\
+"disaggregated.dat" using ($1+0.3):($2+$3):(0.25) title "" with boxes fill solid lc "blue",\
+"disaggregated.dat" using ($1+0.3):($2):(0.25) title "" with boxes fill solid lc "red"
+
+
