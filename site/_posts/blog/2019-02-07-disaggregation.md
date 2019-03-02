@@ -155,21 +155,6 @@ Note that Crail disaggregated storage may be provided by a few highly dense stor
 </p>
 </div>
 
-* Cluster
-  * 8 node OpenPower cluster (for Crail)
-  * 2 node X86 cluster (for RAMCloud)
-* OpenPower Node configuration
-  * CPU: 2x OpenPOWER Power8 10-core @2.9Ghz 
-  * DRAM: 512GB DDR4
-  * Network: 1x100Gbit/s Ethernet Mellanox ConnectX-4 EN (Ethernet/RoCE)
-    * RDMA send/recv latency, ib_send_lat (RTT): 3.1us
-    * RDMA read latency, ib_read_lat (RTT): 2.3us
-* Software
-  * RedHat 7.2 with Linux kernel version 4.10.13
-  * Crail 1.0, internal version 2842
-  * Alluxio 1.4
-  * RAMCloud commit f53202398b4720f20b0cdc42732edf48b928b8d7
-
 <br>
 <div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/terasort.svg" width="350"></div>
 <br>
