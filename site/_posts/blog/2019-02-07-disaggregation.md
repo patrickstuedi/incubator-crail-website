@@ -156,6 +156,6 @@ Note that Crail disaggregated storage may be provided by a few highly dense stor
 </div>
 
 <br>
-<div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/terasort.svg" width="350"></div>
+<div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/terasort.svg" width="450"></div>
 <br>
 
