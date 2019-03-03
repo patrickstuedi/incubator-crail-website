@@ -151,11 +151,14 @@ Note that Crail disaggregated storage may be provided by a few highly dense stor
 ### Disaggregated Map-Reduce (Sorting)
 
 <div style="text-align: justify"> 
-<p> Let's look at some performance data. In the first experiment we measure the runtime of a simple Spark job sorting 200G of data on a 8 node cluster. We compare the performance of different configurations. In the disaggregated configuration the Crail disaggregated shuffler is used, storing shuffle data on disaggregated Crail storage. Crail is deployed on a 4 node storage cluster connected to the compute cluster over a 100 Gb/s Infiniband network. As a direct comparison to the disaggregated configuration we also measure the performance in a co-located setup that also uses the Crail shuffler but deploys the Crail storage platform co-located on the compute cluster. The disaggregated and co-located configurations are shown for both DRAM only and NVMe only. As a reference we also show the performance of vanilla spark in a non-disaggregated configuration. 
+<p> Let's look at some performance data. In the first experiment we measure the runtime of a simple Spark job sorting 200G of data on a 8 node cluster. We compare the performance of different configurations. In the disaggregated configuration the Crail disaggregated shuffler is used, storing shuffle data on disaggregated Crail storage. In this configuration, Crail is deployed on a 4 node storage cluster connected to the compute cluster over a 100 Gb/s Infiniband network. As a direct comparison to the disaggregated configuration we also measure the performance in a co-located setup that also uses the Crail shuffler but deploys the Crail storage platform co-located on the compute cluster. The disaggregated and co-located configurations are shown for both DRAM only and NVMe only. As a reference we also show the performance of vanilla spark in a non-disaggregated configuration where the shuffle directory is configured to point to a local NVMe mountpoint.  
+ 
 </p>
 </div>
 
 <br>
 <div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/terasort.svg" width="450"></div>
-<br>
+<br> 
+The main observation from the figure is that there is almost no performance difference between the co-located and disaggregated configurations. In fact, the performance improves slightly in the disaggregated configuration because more CPU cycles are available to execute the Spark workload, cycles that in the co-located setup are used for local storage processing. 
+
 
