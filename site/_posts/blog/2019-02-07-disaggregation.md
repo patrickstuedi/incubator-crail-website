@@ -159,6 +159,4 @@ Note that Crail disaggregated storage may be provided by a few highly dense stor
 <br>
 <div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/terasort.svg" width="450"></div>
 <br> 
-The main observation from the figure is that there is almost no performance difference between the Crail co-located and Crail disaggregated configurations. In fact, the performance improves slightly in the disaggregated configuration because more CPU cycles are available to execute the Spark workload, cycles that in the co-located setup are used for local storage processing. 
-
-
+The main observation from the figure is that there is almost no performance difference between the Crail co-located and Crail disaggregated configurations. In fact, the performance improves slightly in the disaggregated configuration because more CPU cycles are available to execute the Spark workload, cycles that in the co-located setup are used for local storage processing. Generally, storing shuffle data in DRAM is about 25% faster than storing shuffle data on NVMe. The effect, however, is independent from whether Crail is deployed in a co-located or in a disaggregated mode. 
