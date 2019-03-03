@@ -151,7 +151,9 @@ Note that Crail disaggregated storage may be provided by a few highly dense stor
 ### Disaggregated Map-Reduce (Sorting)
 
 <div style="text-align: justify"> 
-<p> Let's look at some performance data. In the first experiment we look at a sipmle map-reduce job sorting 200G of data on a 8 node cluster. We divide the cluster artificially into two parts, one exclusively used for storage running Crail, and one exclusively used to run the Spark worker nodes and the driver. Details on the cluster hardware are given below:
+<p> Let's look at some performance data. In the first experiment we measure the runtime of a sipmle map-reduce job sorting 200G of data. We compare 
+ 
+ nce by completely disaggregating storage . We divide the cluster artificially into two parts, one exclusively used for storage running Crail, and one exclusively used to run the Spark worker nodes and the driver. Details on the cluster hardware are given below:
 </p>
 </div>
 
