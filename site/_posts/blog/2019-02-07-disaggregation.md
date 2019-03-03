@@ -151,9 +151,7 @@ Note that Crail disaggregated storage may be provided by a few highly dense stor
 ### Disaggregated Map-Reduce (Sorting)
 
 <div style="text-align: justify"> 
-<p> Let's look at some performance data. In the first experiment we measure the runtime of a sipmle map-reduce job sorting 200G of data. We compare 
- 
- nce by completely disaggregating storage . We divide the cluster artificially into two parts, one exclusively used for storage running Crail, and one exclusively used to run the Spark worker nodes and the driver. Details on the cluster hardware are given below:
+<p> Let's look at some performance data. In the first experiment we measure the runtime of a simple Spark job sorting 200G of data on a 8 node cluster. We compare the performance of different configurations. In the disaggregated configuration the Crail disaggregated shuffler is used, storing shuffle data on disaggregated Crail storage. Crail is deployed on a 4 node storage cluster connected to the compute cluster over a 100 Gb/s Infiniband network. As a direct comparison to the disaggregated configuration we also measure the performance in a co-located setup that also uses the Crail shuffler but deploys the Crail storage platform co-located on the compute cluster. The disaggregated and co-located configurations are shown for both DRAM only and NVMe only. As a reference we also show the performance of vanilla spark in a non-disaggregated configuration. 
 </p>
 </div>
 
