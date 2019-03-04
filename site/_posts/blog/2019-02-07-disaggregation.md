@@ -168,6 +168,8 @@ The main observation from the figure is that there is almost no performance diff
 
 ### Disaggregated Spark SQL
 
+Next we look at Spark SQL performance in a disaggregated configuration. Again we are partitioning our cluster into two separate silos of compute (8 nodes) and storage (4 nodes). 
+
 <br>
 <div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/sql.svg" width="430"></div>
 <br> 
