@@ -180,8 +180,11 @@ Next we look at Spark SQL performance in a disaggregated configuration. Again we
 
 <div style="text-align: justify"> 
 <p>
-The first bar from the left in the figure above shows as a reference the runtime the SQL job using vanilla Spark in a non-disaggregated configuration. Note that the vanilla Spark configuration is using the 100 Gb/s Ethernet network available in the compute cluster. In the next experiment we use the Crail disaggregated shuffler, but configure the network connecting the computer to the storage cluster to be 10 Gb/s. As one can observe, the overall runtime of this configuration is worse than the runtime of vanilla Spark, mainly due to the extra network transfers required when disaggregating shuffle data. Next we 
+The first bar from the left in the figure above shows as a reference the runtime the SQL job using vanilla Spark in a non-disaggregated configuration. Note that the vanilla Spark configuration is using the 100 Gb/s Ethernet network available in the compute cluster. In the next experiment we use the Crail disaggregated shuffler, but configure the network connecting the compute to the storage cluster to be 10 Gb/s and also use standard TCP communication between the compute nodes and the storage nodes. As one can observe, the overall runtime of this configuration is worse than the runtime of vanilla Spark, mainly due to the extra network transfers required when disaggregating shuffle data. 
 </p>
+<p>
+Often, high network bandwidth is assumed to be the key enabling factor for storage disaggregation. That this is only partially true is shown in the next experiment where we increase the network bandwidth between the compute and the storage cluster to 100 Gb/s, but communicate using TCP between compute and storage nodes. As can be observed, this improves the runtime to a point that is almost matching the performance of the non-disaggregated configuration based on vanilla Spark. We can, however, carve out even more performance using the RDMA-based version of the Crail disaggrageted shuffler and get to a runtime that is lower than the runtime in the vanilla Spark co-located configuration. One reason why RDMA helps is here because many shuffle network transfers in the Spark SQL workload are small, 
+ </p>
 </div>
 
 
