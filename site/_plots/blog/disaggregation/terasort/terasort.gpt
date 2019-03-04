@@ -1,7 +1,8 @@
 #set term svg size 640,300 font "Times-Roman, 13"
-set term svg size 740,450 font "Times-Roman, 24"
+#set term svg size 740,450 font "Times-Roman, 24"
+set term pdf color size 4,2.2 font "Times-Roman, 14"
 
-set output "terasort.svg"
+set output "terasort.pdf"
 
 set yrange [0:140]
 set xrange [0.5:3.5]
