@@ -45,7 +45,7 @@ In a traditional shuffle operation, data is exchanged between map and reduce tas
 
 <div style="text-align: justify"> 
 <p>
-One of the challenges with shuffle implementations in general is the large number of objects they have to deal with. The number and size of shuffle files depend on the workload, but also on the configuration, in particular on the number of map and reduce tasks in a stage of a job. The number of tasks in a job is often indirectly controlled through the partition size specifying the amount of data each task is operating on. Finding the optimal partition size for a job is difficult and often requires manual tuning. What you want is a partition size small enough to generate enough tasks to exploit all the parallelism available in the cluster. Also, a large number of small task helps to mitigate stragglers, a major issue for distributed data processing frameworks. 
+One of the challenges with shuffle implementations in general is the large number of objects they have to deal with. The number and size of shuffle files depend on the workload, but also on the configuration, in particular on the number of map and reduce tasks in a stage of a job. The number of tasks in a job is often indirectly controlled through the partition size specifying the amount of data each task is operating on. Finding the optimal partition size for a job is difficult and often requires manual tuning. What you want is a partition size small enough to generate enough tasks to exploit all the parallelism available in the cluster. In theory a small partition size and therefore a large number of small tasks helps to mitigate stragglers, a major issue for distributed data processing frameworks. 
 </p>
 
 <p>
