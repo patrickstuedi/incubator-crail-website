@@ -37,7 +37,7 @@ In a traditional shuffle operation, data is exchanged between map and reduce tas
 </div>
 
 <br>
-<div style="text-align:center"><img src ="http://{{ site.base }}/img/blog/disaggregation/overview.svg" width="350"></div>
+<div style="text-align:center"><img src ="{{ site.base }}/img/blog/disaggregation/overview.svg" width="350"></div>
 <br>
 
 ### Challenge: Large Number of Small Files
@@ -55,7 +55,7 @@ performed a simple experiment where we measured the size distribution of Spark s
 </div>
 
 <br>
-<div style="text-align:center"><img src ="http://{{ site.base }}/img/blog/disaggregation/cdf-plot.svg" width="480"></div>
+<div style="text-align:center"><img src ="{{ site.base }}/img/blog/disaggregation/cdf-plot.svg" width="480"></div>
 <br>
 
 <div style="text-align: justify"> 
@@ -73,7 +73,7 @@ To mitigate the overheads of writing and reading large numbers of small data set
 </div> 
 
 <br>
-<div style="text-align:center"><img src ="http://{{ site.base }}/img/blog/disaggregation/optimization_tasks.svg" width="380"></div>
+<div style="text-align:center"><img src ="{{ site.base }}/img/blog/disaggregation/optimization_tasks.svg" width="380"></div>
 <br>
 
 <div style="text-align: justify"> 
@@ -113,7 +113,7 @@ Shuffle operations, being essentially barriers between compute stages, are highl
 </div>
  
 <br>
-<div style="text-align:center"><img src ="http://{{ site.base }}/img/blog/disaggregation/machine_skew.svg" width="520"></div>
+<div style="text-align:center"><img src ="{{ site.base }}/img/blog/disaggregation/machine_skew.svg" width="520"></div>
 <br>
 
 <div style="text-align: justify"> 
@@ -123,7 +123,7 @@ One way to deal with this problem is through weighted fair scheduling of network
 </div>  
 
 <br>
-<div style="text-align:center"><img src ="http://{{ site.base }}/img/blog/disaggregation/machine_skew_crail.svg" width="520"></div>
+<div style="text-align:center"><img src ="{{ site.base }}/img/blog/disaggregation/machine_skew_crail.svg" width="520"></div>
 <br>
 
 <div style="text-align: justify"> 
@@ -139,7 +139,7 @@ One may argue that chopping shuffle data up into blocks and transferring them ov
 </div>
 
 <br>
-<div style="text-align:center"><img src ="http://{{ site.base }}/img/blog/disaggregation/loadbalancing.svg" width="520"></div>
+<div style="text-align:center"><img src ="{{ site.base }}/img/blog/disaggregation/loadbalancing.svg" width="520"></div>
 <br>
 
 <div style="text-align: justify"> 
@@ -157,7 +157,7 @@ Note that Crail disaggregated storage may be provided by a few highly dense stor
 </div>
 
 <br>
-<div style="text-align:center"><img src ="http://{{ site.base }}/img/blog/disaggregation/terasort.svg" width="450"></div>
+<div style="text-align:center"><img src ="{{ site.base }}/img/blog/disaggregation/terasort.svg" width="450"></div>
 <br> 
 
 <div style="text-align: justify"> 
@@ -175,7 +175,7 @@ Next we look at Spark SQL performance in a disaggregated configuration. Again we
 </div>
 
 <br>
-<div style="text-align:center"><img src ="http://{{ site.base }}/img/blog/disaggregation/sql.svg" width="420"></div>
+<div style="text-align:center"><img src ="{{ site.base }}/img/blog/disaggregation/sql.svg" width="420"></div>
 <br> 
 
 <div style="text-align: justify"> 
