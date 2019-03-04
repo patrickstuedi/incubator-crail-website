@@ -170,7 +170,7 @@ The main observation from the figure is that there is almost no performance diff
 
 <div style="text-align: justify"> 
  <p>
-Next we look at Spark SQL performance in a disaggregated configuration. Again we are partitioning our cluster into two separate silos of compute (8 nodes) and storage (4 nodes), but this time we also investigate the effect of different network speeds and network software stacks when connecting the compute cluster to the storage cluster. The Spark SQL job (TPC-DS, query #87) further differs from the I/O heavy sorting job in that it contains many shuffle phases but each of time is light on data, thus, stressing latency aspect of shuffle disaggregation more than raw bandwidth aspects. 
+Next we look at Spark SQL performance in a disaggregated configuration. Again we are partitioning our cluster into two separate silos of compute (8 nodes) and storage (4 nodes), but this time we also investigate the effect of different network speeds and network software stacks when connecting the compute cluster to the storage cluster. The Spark SQL job (TPC-DS, query #87) further differs from the I/O heavy sorting job in that it contains many shuffle phases but each shuffle phase is light on data, thus, stressing latency aspects of shuffle disaggregation more than raw bandwidth aspects. 
   </p>
 </div>
 
