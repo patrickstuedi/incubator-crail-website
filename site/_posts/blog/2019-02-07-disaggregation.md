@@ -172,13 +172,17 @@ The main observation from the figure is that there is almost no performance diff
  <p>
 Next we look at Spark SQL performance in a disaggregated configuration. Again we are partitioning our cluster into two separate silos of compute (8 nodes) and storage (4 nodes), but this time we also investigate the effect of different network speeds and network software stacks when connecting the compute cluster to the storage cluster. The Spark SQL job (TPC-DS, query #87) further differs from the I/O heavy sorting job in that it contains many shuffle phases but each shuffle phase is light on data, thus, stressing latency aspects of shuffle disaggregation more than raw bandwidth aspects. 
 </p>
-<p>
-The first bar from the left in the figure below shows as a reference the runtime the SQL job using vanilla Spark in a non-disaggregated configuration. Note that the vanilla Spark configuration is using the 100 Gb/s Ethernet network available in the compute cluster. In the next experiment we use the Crail disaggregated shuffler, but configure the network connecting the computer to the storage cluster to be 10 Gb/s. As one can observe, the overall runtime of this configuration is worse than the runtime of vanilla Spark, mainly due to the extra network transfers required when disaggregating shuffle data. Next we 
-</p>
 </div>
 
 <br>
 <div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/disaggregation/sql.svg" width="420"></div>
 <br> 
+
+<div style="text-align: justify"> 
+<p>
+The first bar from the left in the figure above shows as a reference the runtime the SQL job using vanilla Spark in a non-disaggregated configuration. Note that the vanilla Spark configuration is using the 100 Gb/s Ethernet network available in the compute cluster. In the next experiment we use the Crail disaggregated shuffler, but configure the network connecting the computer to the storage cluster to be 10 Gb/s. As one can observe, the overall runtime of this configuration is worse than the runtime of vanilla Spark, mainly due to the extra network transfers required when disaggregating shuffle data. Next we 
+</p>
+</div>
+
 
 ### Summary
