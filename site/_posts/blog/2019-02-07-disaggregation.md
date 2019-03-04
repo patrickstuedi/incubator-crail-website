@@ -189,3 +189,7 @@ Often, high network bandwidth is assumed to be the key enabling factor for stora
 
 
 ### Summary
+
+Efficient disaggregation of shuffle data is challenging, requiring shuffle managers and storage systems to be co-designed in order to effectively handle large numbers of small files, machine skew and loadbalancing issues. In this blog post we discussed the basic architecture of the Crail disaggregated shuffle engine and showed that by using Crail we can effectively disaggregate shuffle data in both bandwidth intensive map-reduce jobs as well as in more latency sensitive SQL workloads. In the next blog post we will discuss several deployment options of disaggregated storage in a tiered storage environment. 
+
+
