@@ -13,7 +13,7 @@ One of the goals of Crail has always been to enable efficient storage disaggrega
 </div> 
  
 <br>
-<div style="text-align:center"><img src ="{{ site.base }}/img/blog/deployment/three_options.svg" width="580"></div>
+<div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/deployment/three_options.svg" width="580"></div>
 <br> 
 <br>
  
