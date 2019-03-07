@@ -8,7 +8,7 @@ comments: true
 
 <div style="text-align: justify"> 
 <p>
-In the last blog post we discussed the basic design of the Crail disaggregated shuffler. In this short follow-up blog we briefly describe the different options for deploying disaggregated storage using Crail's tiered storage. 
+In the last <a href="http://crail.incubator.apache.org/blog/2019/03/disaggregation.html">blog post</a> we discussed the basic design of the Crail disaggregated shuffler as well as its performance under different configurations for two workloads. In this short follow-up blog we briefly describe the various options in Crail for deploying disaggregated storage. 
 </p>
 </div> 
  
