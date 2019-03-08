@@ -19,7 +19,9 @@ In the last <a href="http://crail.incubator.apache.org/blog/2019/03/disaggregati
 In a traditional "non-disaggregated" Crail deployment, the Crail datanodes are deployed co-located with the compute nodes running the data processing workloads. By contrast, a disaggregated Crail deployment refers to a setup where the Crail datanodes -- or more precisely, the storage resources exposed by the datanodes -- are seperated (via a network) from the servers running the data processing workloads. Storage disaggregation may be implemented at the level of an entire data center (by provisioning dedicated compute and storage racks), or at the level of individual racks (by dedicating some nodes in a rack exlusively for storage). 
 </p>
 <p>
-Crail permits each storage tier (e.g., RDMA/DRAM, NVMf/Flash) to be deployed and configured independently. 
+Crail permits each storage tier (e.g., RDMA/DRAM, NVMf/Flash) to be deployed and configured independently. This means we can decide to disaggregate one storage tier but not another. For instance, it is more natural to disaggregate the flash storage tier than to disaggregate the memory tier. 
+ 
+ 
 </p>
 </div>
  
