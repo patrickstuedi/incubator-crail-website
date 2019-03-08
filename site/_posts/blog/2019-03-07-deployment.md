@@ -16,7 +16,7 @@ In the last <a href="http://crail.incubator.apache.org/blog/2019/03/disaggregati
 
 <div style="text-align: justify"> 
 <p>
-A disaggregated Crail deployment refers to a deployment where the Crail datanodes -- or more precisely, the storage resources exposed by the datanodes -- and the servers running the data processing workloads are seperated via a network. 
+A disaggregated Crail deployment refers to a deployment where the Crail datanodes -- or more precisely, the storage resources exposed by the datanodes -- are seperated from the servers running the data processing workloads via a network. 
 </p>
 </div>
  
