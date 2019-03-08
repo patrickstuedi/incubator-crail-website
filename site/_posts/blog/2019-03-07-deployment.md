@@ -12,12 +12,19 @@ In the last <a href="http://crail.incubator.apache.org/blog/2019/03/disaggregati
 </p>
 </div>
 
-### Practical Configurations
+### Mixing Disaggregated and Co-located Configurations
 
 <div style="text-align: justify"> 
 <p>
-A disaggregated Crail deployment refers to a deployment where the Crail datanodes -- or more precisely, the storage resources exposed by the datanodes -- are seperated from the servers running the compute workloads and data is accessed over the network. 
+A disaggregated Crail deployment refers to a setup where the Crail datanodes -- or more precisely, the storage resources exposed by the datanodes -- are seperated from the servers running the data processing workloads. At the scale of an entire data center, disaggregation may be implemented by provisioning dedicated compute and storage racks connected via a network. 
+ 
+ 
+ 
+ and data is accessed over the network. A disaggregated deployment stands in contrast to a co-located deployment where Crail datanodes and compute servers are deployed on the same set of machines (virtual or physical). 
 </p>
+<p> 
+ 
+ </p>
 </div>
  
 <br>
