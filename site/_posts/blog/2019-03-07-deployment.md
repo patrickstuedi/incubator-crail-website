@@ -16,7 +16,25 @@ In the last <a href="http://crail.incubator.apache.org/blog/2019/03/disaggregati
 
 <div style="text-align: justify"> 
 <p>
-A disaggregated Crail deployment refers to a setup where the Crail datanodes -- or more precisely, the storage resources exposed by the datanodes -- are seperated from the servers running the data processing workloads. At the scale of an entire data center, storage disaggregation may be implemented by provisioning dedicated compute and storage racks connected via a network. Storage disaggregation may also be an attractive deployment model at the level of a single rack. Rather than attaching local storage resources to each compute node (e.g., SATA attached SSDs), a few nodes in a rack may be dedicated as storage nodes serving the remaining (storage-free) compute nodes. A disaggregated deployment stands in contrast to a co-located deployment where Crail datanodes and compute servers are deployed on the same set of machines (virtual or physical). 
+A disaggregated Crail deployment refers to a setup where the Crail datanodes -- or more precisely, the storage resources exposed by the datanodes -- are seperated (via a network) from the servers running the data processing workloads. At the scale of an entire data center, storage disaggregation is typically implemented by provisioning dedicated compute and storage racks. 
+ 
+Even though Crail is designed to scale horizontally and can be deployed at the level of an entire data center, its architecture favors deployments with fewer fault domains (e.g., a rack or two). 
+
+ is more suitable to smaller deployments consisting of a few racks (largest deployment of Crail was on 4 racks) in a shared fault domain. 
+ 
+ 
+ a single fault domain like a rack (largest deployment of Crail was on 4 racks). 
+ 
+
+
+ 
+ 
+ Storage disaggregation may also be an attractive deployment model at the level of a single rack. Rather than attaching local storage resources to each compute node (e.g., SATA attached SSDs), a few nodes in a rack may be dedicated as storage nodes serving the remaining (storage-free) compute nodes. T
+ 
+ 
+ A disaggregated Crail deployment stands in contrast to a co-located deployment where Crail datanodes and compute servers are deployed on the same set of machines (virtual or physical). 
+ 
+Even though Crail is designed to scale horizontally and can be deployed at the level of an entire data center, the
  </p>
  <p>
 </p>
