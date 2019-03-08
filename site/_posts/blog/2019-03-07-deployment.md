@@ -16,7 +16,7 @@ In the last <a href="http://crail.incubator.apache.org/blog/2019/03/disaggregati
 
 <div style="text-align: justify"> 
 <p>
-Crail being a tiered storage system permits configuring each storage tier individually. 
+A disaggregated Crail deployment refers to a deployment where the Crail datanodes -- or more precisely, the storage resources exposed by the datanodes -- are seperated from servers running the data processing workloads via a network. 
 </p>
 </div>
  
