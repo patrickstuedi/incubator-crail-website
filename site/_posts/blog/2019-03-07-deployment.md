@@ -45,7 +45,7 @@ Remember that a Crail storage server is entirely a control path entity, responsi
 
 <div style="text-align: justify"> 
 <p>
-In all of the previously discussed configurations there is a one-to-one mapping between storage media type and storage tier. There are situations, however, where it may be useful to configure multiple storage tiers of a particular storage type. For instance, 
+In all of the previously discussed configurations there is a one-to-one mapping between storage media type and storage tier. There are situations, however, where it may be useful to configure multiple storage tiers of a particular media type. For instance, 
  </p>
  </div>
  
