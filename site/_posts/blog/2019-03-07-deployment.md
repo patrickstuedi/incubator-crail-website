@@ -46,9 +46,10 @@ Remember that a Crail storage server is entirely a control path entity, responsi
 <div style="text-align: justify"> 
 <p>
 In all of the previously discussed configurations there is a one-to-one mapping between storage media type and storage tier. There are situations, however, where it may be useful to configure multiple storage tiers of a particular media type. For instance, 
+ </p> 
  
- 
-Storage tiers are globally ordered according to user preference (typically based on performance). During writes, Crail either allocates blocks from the highest priority tier that has free space, or if from a particular tier if explicitely requested.  
+<p>
+Remember that storage tiers in Crail are globally ordered according to user preference (typically based on performance). During writes, Crail either allocates blocks from the highest priority tier that has free space, or if from a particular tier if explicitly requested.  
  </p>
  </div>
  
