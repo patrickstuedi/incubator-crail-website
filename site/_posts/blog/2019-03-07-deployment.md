@@ -32,8 +32,8 @@ Crail permits each storage tier (e.g., RDMA/DRAM, NVMf/Flash) to be deployed and
 <br>
 
 * Non-disaggrageted (left): each each compute server exports some of its local DRAM and Flash into Crail by running one Crail storage server instance for each storage type.
-* Complete disaggregation: the compute servers do not participate in Crail storage. Instead, dedicated storage servers for DRAM and Flash are deployed. The storage servers export their storage resources into Crail by running corresponding Crail storage servers.
-* Mixed disaggregation: each compute server exports some of its local DRAM into Crail. The Crail storage space is then augmented by disaggregated Flash. 
+* Complete disaggregation (middle): the compute servers do not participate in Crail storage. Instead, dedicated storage servers for DRAM and Flash are deployed. The storage servers export their storage resources into Crail by running corresponding Crail storage servers.
+* Mixed disaggregation (right): each compute server exports some of its local DRAM into Crail. The Crail storage space is then augmented by disaggregated Flash. 
 
 <div style="text-align: justify"> 
 <p>
