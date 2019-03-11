@@ -40,6 +40,8 @@ Crail permits each storage tier (e.g., RDMA/DRAM, NVMf/Flash) to be deployed and
 Remember that a Crail storage server is entirely a control path entity, responsible only for registering storage resources (and corresponding access endpoints) with Crail metadata servers and for monitoring the health of the storage resources. Therefore, a storage server does not necessarily need to run co-located with the storage resource it exports. For instance, one may export an all-flash storage enclosure in Crail by deploying a Crail storage server on one of the compute nodes. 
  </p>
  </div>
+ 
+ ### Splitting
 
  
 
