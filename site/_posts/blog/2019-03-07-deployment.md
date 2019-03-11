@@ -19,15 +19,12 @@ In the last <a href="http://crail.incubator.apache.org/blog/2019/03/disaggregati
 In a traditional "non-disaggregated" Crail deployment, the Crail datanodes are deployed co-located with the compute nodes running the data processing workloads. By contrast, a disaggregated Crail deployment refers to a setup where the Crail storage servers -- or more precisely, the storage resources exposed by the storage servers -- are seperated (via a network) from the compute servers running the data processing workloads. Storage disaggregation may be implemented at the level of an entire data center (by provisioning dedicated compute and storage racks), or at the level of individual racks (by dedicating some nodes in a rack exlusively for storage). 
 </p>
 <p>
-Crail permits each storage tier (e.g., RDMA/DRAM, NVMf/Flash) to be deployed and configured independently. This means we can decide to disaggregate one storage tier but not another. For instance, it is more natural to disaggregate the flash storage tier than to disaggregate the memory tier. High-density all-flash storage enclosures are commonly available and often provide NVMe over Fabrics connectivity, thus, exposing them as disaggregated NVMe Flash in Crail is straightforward. High-density memory servers on the other hand (e.g., AWS x1e.32xlarge), would be wasted if we were not using the CPU to run memory intensive computations. Exporting the memory of compute servers into Crail, however, may still make sense as it allows any server to operate on remote memory as soon as it runs out of local memory. 
- </p>
-<p>
-The figure below illustrates three possible configurations of Crail in a single rack: 
+Crail permits each storage tier (e.g., RDMA/DRAM, NVMf/Flash) to be deployed and configured independently. This means we can decide to disaggregate one storage tier but not another. For instance, it is more natural to disaggregate the flash storage tier than to disaggregate the memory tier. High-density all-flash storage enclosures are commonly available and often provide NVMe over Fabrics connectivity, thus, exposing them as disaggregated NVMe Flash in Crail is straightforward. High-density memory servers on the other hand (e.g., AWS x1e.32xlarge), would be wasted if we were not using the CPU to run memory intensive computations. Exporting the memory of compute servers into Crail, however, may still make sense as it allows any server to operate on remote memory as soon as it runs out of local memory. The figure below illustrates three possible configurations of Crail in a single rack: 
  </p>
 </div>
-* Non-disaggrageted (left): each each compute server exports some of its local DRAM and Flash into Crail by running one Crail storage server instance of both types.
-* Complete disaggregation: where the compute servers do not participate in Crail storage but all 
-* Mixed disaggregation: 
+* Non-disaggrageted (left): each each compute server exports some of its local DRAM and Flash into Crail by running one Crail storage server instance for each storage type.
+* Complete disaggregation: the compute servers do not participate in Crail storage. Instead, dedicated storage servers for DRAM and Flash are deployed. The storage servers export their storage resources into Crail by running corresponding Crail storage servers.
+* Mixed disaggregation: each compute server exports some of its local DRAM into Crail. The Crail storage space is then augmented by disaggregated Flash. 
  
 <br>
 <div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/deployment/three_options.svg" width="580"></div>
