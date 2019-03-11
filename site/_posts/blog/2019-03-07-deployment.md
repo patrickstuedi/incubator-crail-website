@@ -41,7 +41,9 @@ Remember that a Crail storage server is entirely a control path entity, responsi
  </p>
  </div>
  
- ### Splitting
+ ### Fine-grained Tiering using Crail Storage Classes
+ 
+In all of the previously discussed configurations there is a one-to-one mapping between storage media type and storage tier. There are situations, however, where it may be useful to configure multiple storage tiers of a particular storage type. For instance, 
 
  
 
