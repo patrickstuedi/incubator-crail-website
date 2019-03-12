@@ -68,21 +68,20 @@ clusternode1 -t org.apache.crail.storage.nvmf.NvmfStorageTier -c 1
 clusternode2 -t org.apache.crail.storage.nvmf.NvmfStorageTier -c 1
 disaggnode -t org.apache.crail.storage.nvmf.NvmfStorageTier -c 2
 ```   
+
 <div style="text-align: justify"> 
 <p>
 One can also manually attach a storage server to a particular storage class:
  </p>
  </div>
+ 
 ```
 crail@clusternode2:~$ $CRAIL_HOME/bin/crail datanode -t org.apache.crail.storage.nvmf.NvmfStorageTier -c 2
 ```    
+
 <div style="text-align: justify"> 
 <p>
 Remember that the storage class ID is implicitly ordering the storage tiers. During writes, Crail either allocates blocks from the highest priority tier that has free space, or if from a particular tier if explicitly requested.  If applications want to further prioritize the specific local resource of a machine over any other resource in the same storage class they can do so via the location class parameter when creating an object in Crail. 
- </p>
- </div>
- 
- ```
-```   
- 
+</p>
+</div>
 
