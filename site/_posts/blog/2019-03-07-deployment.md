@@ -50,7 +50,7 @@ In all of the previously discussed configurations there is a one-to-one mapping 
 </div>  
 
 <br>
-<div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/deployment/storage_class.svg" width="380"></div>
+<div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/deployment/storage_class.svg" width="350"></div>
 <br> 
 <br>
 
