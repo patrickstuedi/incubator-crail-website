@@ -41,12 +41,12 @@ Remember that a Crail storage server is entirely a control path entity, responsi
  </p>
  </div>
  
-### Fine-grained Tiering using Crail Storage Classes
+### Fine-grained Tiering using Storage and Location Classes 
 
 <div style="text-align: justify"> 
 <p>
-In all of the previously discussed configurations there is a one-to-one mapping between storage media type and storage tier. There are situations, however, where it may be useful to configure multiple storage tiers of a particular media type. For instance, 
- </p> 
+In all of the previously discussed configurations there is a one-to-one mapping between storage media type and storage tier. There are situations, however, where it can be useful to configure multiple storage tiers of a particular media type. For instance, consider a setup where the compute nodes have access to disaggregated flash (in a different rack) but are also attached to some amount of local flash. In this case, you may want to priotize the use of local flash over flash in the same rack over disaggregated flash in a different rack. The way this is done in Crail is through storage and location classes. 
+</p> 
  
 <p>
 Remember that storage tiers in Crail are globally ordered according to user preference (typically based on performance). During writes, Crail either allocates blocks from the highest priority tier that has free space, or if from a particular tier if explicitly requested.  
