@@ -100,3 +100,7 @@ If applications want to further prioritize the specific local resource of a mach
 CrailLocationClass local = fs.getLocationClass();
 CrailFile file = fs.create("/tmp.dat", CrailNodeType.DATAFILE, CrailStorageClass.DEFAULT, local).get().asFile();
 ``` 
+<br>
+<div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/deployment/resource_provisioning.svg" width="400"></div>
+<br> 
+<br>
