@@ -91,6 +91,6 @@ CrailFile file = fs.create("/tmp.dat", CrailNodeType.DATAFILE, CrailStorageClass
 ``` 
 
 <br>
-<div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/deployment/timeline.svg" width="480"></div>
+<div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/deployment/timeline.svg" width="580"></div>
 <br> 
 <br>
