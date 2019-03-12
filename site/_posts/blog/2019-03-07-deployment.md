@@ -78,7 +78,7 @@ crail@clusternode2:~$ $CRAIL_HOME/bin/crail datanode -t org.apache.crail.storage
 ```    
 <div style="text-align: justify"> 
 <p>
-Remember that the storage class ID is implicitly ordering the storage tiers. During writes, Crail either allocates blocks from the highest priority tier that has free space, or if from a particular tier if explicitly requested.  If applications want to further prioritize the specific local resource of a machine over any other resource in a particular storage class they can do so by specifying  class when creating a Crail object. 
+Remember that the storage class ID is implicitly ordering the storage tiers. During writes, Crail either allocates blocks from the highest priority tier that has free space, or if from a particular tier if explicitly requested.  If applications want to further prioritize the specific local resource of a machine over any other resource in the same storage class they can do so via the location class parameter when creating an object in Crail. 
  </p>
  </div>
  
