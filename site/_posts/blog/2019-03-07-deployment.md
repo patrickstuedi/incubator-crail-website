@@ -81,7 +81,18 @@ crail@clusternode2:~$ $CRAIL_HOME/bin/crail datanode -t org.apache.crail.storage
 
 <div style="text-align: justify"> 
 <p>
-Remember that the storage class ID is implicitly ordering the storage tiers. During writes, Crail either allocates blocks from the highest priority tier that has free space, or from a particular tier if explicitly requested.  If applications want to further prioritize the specific local resource of a machine over any other resource in the same storage class they can do so via the location class parameter when creating an object in Crail. 
+Remember that the storage class ID is implicitly ordering the storage tiers. During writes, Crail either allocates blocks from the highest priority tier that has free space, or from a particular tier if explicitly requested. 
+</p>
+</div>
+
+<br>
+<div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/deployment/timeline.svg" width="580"></div>
+<br> 
+<br>
+
+<div style="text-align: justify"> 
+<p>
+If applications want to further prioritize the specific local resource of a machine over any other resource in the same storage class they can do so via the location class parameter when creating an object in Crail. 
 </p>
 </div>
 
@@ -89,8 +100,3 @@ Remember that the storage class ID is implicitly ordering the storage tiers. Dur
 CrailLocationClass local = fs.getLocationClass();
 CrailFile file = fs.create("/tmp.dat", CrailNodeType.DATAFILE, CrailStorageClass.DEFAULT, local).get().asFile();
 ``` 
-
-<br>
-<div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/deployment/timeline.svg" width="580"></div>
-<br> 
-<br>
