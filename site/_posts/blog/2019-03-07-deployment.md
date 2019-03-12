@@ -86,5 +86,6 @@ Remember that the storage class ID is implicitly ordering the storage tiers. Dur
 </div>
 
 ```
-CrailFile file = fs.create("/tmp.dat", CrailNodeType.DATAFILE, CrailStorageClass.DEFAULT, fs.getLocationClass()).get().asFile();
+CrailLocationClass local = fs.getLocationClass();
+CrailFile file = fs.create("/tmp.dat", CrailNodeType.DATAFILE, CrailStorageClass.DEFAULT, local).get().asFile();
 ``` 
