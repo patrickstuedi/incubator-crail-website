@@ -56,7 +56,7 @@ In all of the previously discussed configurations there is a one-to-one mapping 
 
 <div style="text-align: justify"> 
 <p>
-Storage classes can easily be defined in the slaves file as follows (see the  for details):
+Storage classes can easily be defined in the slaves file as follows (see the <a href="https://incubator-crail.readthedocs.io/en/latest/config.html#storage-tiers">Crail documentation</a> for details):
 </p> 
 </div>   
 
