@@ -62,7 +62,7 @@ One can also manually attach a storage server to a particular storage class:
  </p>
  </div>
 ```
-crail@clustermaster:~$ $CRAIL_HOME/bin/crail datanode -t org.apache.crail.storage.nvmf.NvmfStorageTier -c 2
+crail@clusternode2:~$ $CRAIL_HOME/bin/crail datanode -t org.apache.crail.storage.nvmf.NvmfStorageTier -c 2
 ```    
 <div style="text-align: justify"> 
 <p>
