@@ -45,7 +45,7 @@ Remember that a Crail storage server is entirely a control path entity, responsi
 
 <div style="text-align: justify"> 
 <p>
-In all of the previously discussed configurations there is a one-to-one mapping between storage media type and storage tier. There are situations, however, where it can be useful to configure multiple storage tiers of a particular media type. For instance, consider a setup where the compute nodes have access to disaggregated flash (e.g., in a different rack) but are also attached to some amount of local flash. In this case, you may want to priotize the use of local flash over flash in the same rack (local flash of a different compute node) over disaggregated flash in a different rack. The way this is done in Crail is through storage and location classes. First, we create two different storage classes
+In all of the previously discussed configurations there is a one-to-one mapping between storage media type and storage tier. There are situations, however, where it can be useful to configure multiple storage tiers of a particular media type. For instance, consider a setup where the compute nodes have access to disaggregated flash (e.g., in a different rack) but are also attached to some amount of local flash. In this case, you may want to priotize the use of local flash over flash in the same rack (local flash of a different compute node) over disaggregated flash in a different rack. And of course you want to also priortize local DRAM over DRAM in the same rack over any flash if DRAM is available. The way this is done in Crail is through storage and location classes. 
 </p> 
  
 <p>
