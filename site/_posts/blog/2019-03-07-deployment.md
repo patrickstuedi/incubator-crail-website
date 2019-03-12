@@ -45,9 +45,26 @@ Remember that a Crail storage server is entirely a control path entity, responsi
 
 <div style="text-align: justify"> 
 <p>
-In all of the previously discussed configurations there is a one-to-one mapping between storage media type and storage tier. There are situations, however, where it can be useful to configure multiple storage tiers of a particular media type. For instance, consider a setup where the compute nodes have access to disaggregated flash (e.g., in a different rack) but are also attached to some amount of local flash. In this case, you may want to priotize the use of local flash over flash in the same rack (local flash of a different compute node) over disaggregated flash in a different rack. And of course you want to also priortize local DRAM over DRAM in the same rack over any flash if DRAM is available. The way this is done in Crail is through storage and location classes. 
+In all of the previously discussed configurations there is a one-to-one mapping between storage media type and storage tier. There are situations, however, where it can be useful to configure multiple storage tiers of a particular media type. For instance, consider a setup where the compute nodes have access to disaggregated flash (e.g., in a different rack) but are also attached to some amount of local flash. In this case, you may want to priotize the use of local flash over flash in the same rack (local flash of a different compute node) over disaggregated flash in a different rack. And of course you want to also priortize local DRAM over DRAM in the same rack over any flash if DRAM is available. The way this is done in Crail is through storage and location classes. In this case, a reasonable configuration would be to create three storage classes. The first storage class contains of the local DRAM, the second storage class constains all of the local flash, and the third storage class represents disaggregated flash. Storage classes can easily be defined in the slaves file as follows:
 </p> 
- 
+</div>  
+```
+crail@clustermaster:~$ cat $CRAIL_HOME/conf/slaves
+clusternode1 -t org.apache.crail.storage.rdma.RdmaStorageTier -c 0
+clusternode2 -t org.apache.crail.storage.rdma.RdmaStorageTier -c 0
+clusternode1 -t org.apache.crail.storage.nvmf.NvmfStorageTier -c 1
+clusternode2 -t org.apache.crail.storage.nvmf.NvmfStorageTier -c 1
+disaggnode -t org.apache.crail.storage.nvmf.NvmfStorageTier -c 2
+```   
+<div style="text-align: justify"> 
+<p>
+One can also manually attach a storage server to a particular storage class:
+ </p>
+ </div>
+```
+crail@clustermaster:~$ $CRAIL_HOME/bin/crail datanode -t org.apache.crail.storage.nvmf.NvmfStorageTier -c 2
+```    
+<div style="text-align: justify"> 
 <p>
 Remember that storage tiers in Crail are globally ordered according to user preference (typically based on performance). During writes, Crail either allocates blocks from the highest priority tier that has free space, or if from a particular tier if explicitly requested.  
  </p>
