@@ -45,12 +45,12 @@ Remember that a Crail storage server is entirely a control path entity, responsi
 
 <div style="text-align: justify"> 
 <p>
-In all of the previously discussed configurations there is a one-to-one mapping between storage media type and storage tier. There are situations, however, where it can be useful to configure multiple storage tiers of a particular media type. For instance, consider a setup where the compute nodes have access to disaggregated flash but are also attached to some amount of local flash. In this case, you may want to priotize the use of local flash over flash in the same rack (local flash of a different compute node) over disaggregated flash in a different rack. And of course you want to also priortize local DRAM over DRAM in the same rack over any flash if DRAM is available. The way this is done in Crail is through storage and location classes. In this case, a reasonable configuration would be to create three storage classes. The first storage class contains of the local DRAM, the second storage class constains all of the local flash, and the third storage class represents disaggregated flash. The figure below illustrates a configuration with three storage classes in a simplified single-rack deployment.
+In all of the previously discussed configurations there is a one-to-one mapping between storage media type and storage tier. There are situations, however, where it can be useful to configure multiple storage tiers of a particular media type. For instance, consider a setup where the compute nodes have access to disaggregated flash but are also attached to some amount of local flash. In this case, you may want to priotize the use of local flash over flash in the same rack (local flash of a different compute node) over disaggregated flash in a different rack. And of course you want to also priortize local DRAM over DRAM in the same rack over any flash if DRAM is available. The way this is done in Crail is through storage and location classes. In this case, a reasonable configuration would be to create three storage classes. The first storage class contains of the local DRAM, the second storage class constains all of the local flash, and the third storage class represents disaggregated flash. The figure below illustrates a configuration with three storage classes in a simplified single-rack deployment (you may instead .
 </p> 
 </div>  
 
 <br>
-<div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/deployment/storage_class.svg" width="360"></div>
+<div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/deployment/storage_class.svg" width="400"></div>
 <br> 
 <br>
 
