@@ -129,7 +129,7 @@ Ideally, we would want individual storage tiers to be elastic in a way that stor
 
 <div style="text-align: justify"> 
 <p>
-In this blog we discussed varios configuration options for deploying disaggrated storage using Crail. One key observation is that Crail permits each storage tier to be configured seperately and, thus, enables mixing standard non-disaggregated storage tiers with disaggregated storage tiers. 
+In this blog we discussed various configuration options for deploying disaggrated storage using Crail. One key observation is that Crail permits each storage tier to be configured seperately and, thus, enables mixing standard non-disaggregated storage tiers with disaggregated storage tiers. 
  </p>
  </div>
 
