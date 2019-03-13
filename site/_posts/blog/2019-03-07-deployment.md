@@ -22,7 +22,7 @@ In a traditional "non-disaggregated" Crail deployment, the Crail storage servers
 
 <div style="text-align: justify"> 
 <p>
-Remember that Crail is a tiered storage system where each storage tier consists of a subset of storage servers. Crail permits each storage tier (e.g., RDMA/DRAM, NVMf/Flash, etc.) to be deployed and configured independently. This means we can decide to disaggregate one storage tier but use a co-located setup for another tier. For instance, it is more natural to disaggregate the flash storage tier than to disaggregate the memory tier. High-density all-flash storage enclosures are commonly available and often provide NVMe over Fabrics (NVMf) connectivity, thus, exposing such a Flash enclosure in Crail is straightforward. High-density memory servers on the other hand (e.g., AWS x1e.32xlarge), would be wasted if we were not using the CPU to run memory intensive computations. Exporting the memory of compute servers into Crail, however, may still make sense as it allows any server to operate on remote memory as soon as it runs out of local memory. The figure below illustrates three possible configurations of Crail in a single rack: 
+Remember that Crail is a tiered storage system where each storage tier consists of a subset of storage servers. Crail permits each storage tier (e.g., RDMA/DRAM, NVMf/flash, etc.) to be deployed and configured independently. This means we can decide to disaggregate one storage tier but use a co-located setup for another tier. For instance, it is more natural to disaggregate the flash storage tier than to disaggregate the memory tier. High-density all-flash storage enclosures are commonly available and often provide NVMe over Fabrics (NVMf) connectivity, thus, exposing such a flash enclosure in Crail is straightforward. High-density memory servers on the other hand (e.g., AWS x1e.32xlarge), would be wasted if we were not using the CPU to run memory intensive computations. Exporting the memory of compute servers into Crail, however, may still make sense as it allows any server to operate on remote memory as soon as it runs out of local memory. The figure below illustrates three possible configurations of Crail in a single rack: 
  </p>
 </div>
 
@@ -31,9 +31,9 @@ Remember that Crail is a tiered storage system where each storage tier consists 
 <br> 
 <br>
 
-* Non-disaggrageted (left): each each compute server exports some of its local DRAM and Flash into Crail by running one Crail storage server instance for each storage type.
-* Complete disaggregation (middle): the compute servers do not participate in Crail storage. Instead, dedicated storage servers for DRAM and Flash are deployed. The storage servers export their storage resources into Crail by running corresponding Crail storage servers.
-* Mixed disaggregation (right): each compute server exports some of its local DRAM into Crail. The Crail storage space is then augmented by disaggregated Flash. 
+* Non-disaggrageted (left): each each compute server exports some of its local DRAM and flash into Crail by running one Crail storage server instance for each storage type.
+* Complete disaggregation (middle): the compute servers do not participate in Crail storage. Instead, dedicated storage servers for DRAM and flash are deployed. The storage servers export their storage resources into Crail by running corresponding Crail storage servers.
+* Mixed disaggregation (right): each compute server exports some of its local DRAM into Crail. The Crail storage space is then augmented by disaggregated flash. 
 
 <div style="text-align: justify"> 
 <p>
