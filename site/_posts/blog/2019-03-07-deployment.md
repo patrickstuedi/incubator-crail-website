@@ -102,7 +102,7 @@ CrailFile file = fs.create("/tmp.dat", CrailNodeType.DATAFILE, CrailStorageClass
 ``` 
 <div style="text-align: justify"> 
 <p>
-In this case, Crail would first try to allocate storage blocks local the client machine from the highest priority storage tier, once the local resources run out it would allocate remote resource following the priority list of the storage tiers. 
+In this case, Crail would first try to allocate storage blocks local to the client machine. Note also that the location class preference is always weighed lower than the storage class preference, therefore Crail would still prioritize a remote block over a local block if the remote block is part of a higher priority storage class. In any case, if no local block can be found, Crail falls back to the default policy of filling up storage tiers in their oder of preference. 
  </p>
 </div> 
 
