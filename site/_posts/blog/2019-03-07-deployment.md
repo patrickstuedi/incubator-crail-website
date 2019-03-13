@@ -108,7 +108,11 @@ In this case, Crail would first try to allocate storage blocks local the client 
 
 ### Resource Provisioning
 
-During the deployment of Crail, one has to decide on the storage capacity of each individual storage tier or storage class, which is a non-trivial task. One approach is to provision storage resources in a way that during normal operation the DRAM tier has sufficient capacity to absorb most of the data in Crail. During peak demands, however, the storage demand might be significantly higher. allocating DRAM resources for the peak might be a waste as these resources are 
+<div style="text-align: justify"> 
+<p>
+During the deployment of Crail, one has to decide on the storage capacity of each individual storage tier or storage class, which is a non-trivial task. One approach is to provision sufficient capacity in the highest performing storage class to satisfy the demands during normal operation, and use the local and the disaggregated flash tiers to absorb the high demands during peak times. 
+</p>
+</div> 
 
 <br>
 <div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/deployment/resource_provisioning.svg" width="400"></div>
