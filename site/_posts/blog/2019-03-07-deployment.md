@@ -121,7 +121,7 @@ During the deployment of Crail, one has to decide on the storage capacity of eac
 
 <div style="text-align: justify"> 
 <p>
-Ideally, we would want individual storage tiers to be elastic in a way that storage capacities can be adjutsed dynamically (and automatically) based on the load. Currently, Crail does not provide elastic storage tiers. In a <a href="https://www.usenix.org/system/files/osdi18-klimovic.pdf">recent research</a> work, however, we have been exploring how to build elastic storage in the context of serverless computing and in the future we might integrate some of these ideas into Crail as well. 
+Ideally, we would want individual storage tiers to be elastic in a way that storage capacities can be adjutsed dynamically (and automatically) based on the load. Currently, Crail does not provide elastic storage tiers (adding storage servers on the fly is always possible, but not removing). In a recent research system named <a href="https://www.usenix.org/system/files/osdi18-klimovic.pdf">Pocket</a>, however, we have been exploring how to build elastic storage in the context of serverless computing and in the future we might integrate some of these ideas into Crail as well. 
 </p>
 </div>  
 
@@ -129,7 +129,7 @@ Ideally, we would want individual storage tiers to be elastic in a way that stor
 
 <div style="text-align: justify"> 
 <p>
-In this blog we discussed varios configuration options for deploying disaggrated storage using Crail. The key observation is that Crail permits each storage tier to be configured seperately and, thus, enables mixing standard non-disaggregated storage tiers with disaggregated storage tiers. 
+In this blog we discussed varios configuration options for deploying disaggrated storage using Crail. One key observation is that Crail permits each storage tier to be configured seperately and, thus, enables mixing standard non-disaggregated storage tiers with disaggregated storage tiers. 
  </p>
  </div>
 
