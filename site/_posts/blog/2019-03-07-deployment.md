@@ -103,6 +103,7 @@ CrailFile file = fs.create("/tmp.dat", CrailNodeType.DATAFILE, CrailStorageClass
 <div style="text-align: justify"> 
 <p>
 In this case, Crail would first try to allocate storage blocks local the client machine from the highest priority storage tier, once the local resources run out it would allocate remote resource following the priority list of the storage tiers. 
+ </p>
 </div> 
 
 ### Resource Provisioning
