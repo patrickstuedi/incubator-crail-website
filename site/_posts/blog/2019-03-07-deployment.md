@@ -110,7 +110,7 @@ In this case, Crail would first try to allocate storage blocks local to the clie
 
 <div style="text-align: justify"> 
 <p>
-During the deployment of Crail, one has to decide on the storage capacity of each individual storage tier or storage class, which is a non-trivial task. One approach is to provision sufficient capacity in the highest performing storage class to satisfy the demands during normal operation, and use the local and the disaggregated flash tiers to absorb the high demands during peak times. 
+During the deployment of Crail, one has to decide on the storage capacity of each individual storage tier or storage class, which is a non-trivial task. One approach is to provision sufficient capacity to make sure that under normal operation storage demands can be served by the the highest performing storage class, and then allocate additional resources in the local and disaggregated flash tiers to absorb the peak demands. 
 </p>
 </div> 
 
