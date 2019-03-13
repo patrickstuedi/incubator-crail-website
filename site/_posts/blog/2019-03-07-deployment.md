@@ -118,3 +118,10 @@ During the deployment of Crail, one has to decide on the storage capacity of eac
 <div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/deployment/resource_provisioning.svg" width="400"></div>
 <br> 
 <br>
+
+<div style="text-align: justify"> 
+<p>
+Ideally, we would want individual storage tiers to be elastic in a way that storage capacities can be adjutsed dynamically (and automatically) based on the load. Currently, Crail does not provide elastic storage tiers. 
+</p>
+</div>  
+ 
