@@ -129,7 +129,7 @@ Ideally, we would want individual storage tiers to be elastic in a way that stor
 
 <div style="text-align: justify"> 
 <p>
-In this blog we discussed various configuration options for deploying disaggrated storage using Crail. One key observation is that Crail permits each storage tier to be configured seperately and, thus, enables mixing standard non-disaggregated storage tiers with disaggregated storage tiers. 
+In this blog we discussed various configuration options in Crail for deploying tiered disaggrated storage. Crail allows mixing tradional non-disaggregated storage with disaggregated storage in a single storage namespace and thereby is able to seamlessly absorb peak storage demands while offering excellent performance during regular operation. Storage classes and location classes in Crail further provide fine-grained control over how storage resources are provisoned and allocated. In the future, we are considering to make resource provisioning in Crail dynamic and automatic, similar to <a href="https://www.usenix.org/system/files/osdi18-klimovic.pdf">Pocket</a>. 
  </p>
  </div>
 
