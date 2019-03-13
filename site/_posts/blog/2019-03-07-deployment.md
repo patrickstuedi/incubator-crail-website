@@ -100,6 +100,15 @@ If applications want to further prioritize the specific local resource of a mach
 CrailLocationClass local = fs.getLocationClass();
 CrailFile file = fs.create("/tmp.dat", CrailNodeType.DATAFILE, CrailStorageClass.DEFAULT, local).get().asFile();
 ``` 
+<div style="text-align: justify"> 
+<p>
+In this case, Crail would first try to allocate storage blocks local the client machine from the highest priority storage tier, once the local resources run out it would allocate remote resource following the priority list of the storage tiers. 
+</div> 
+
+### Resource Provisioning
+
+Clearly, 
+
 <br>
 <div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/deployment/resource_provisioning.svg" width="400"></div>
 <br> 
