@@ -27,7 +27,7 @@ Remember that Crail is a tiered storage system where each storage tier consists 
 </div>
 
 <br>
-<div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/deployment/three_options.svg" width="580"></div>
+<div style="text-align:center"><img src ="{{ site.base }}/img/blog/deployment/three_options.svg" width="580"></div>
 <br> 
 <br>
 
@@ -50,7 +50,7 @@ In all of the previously discussed configurations there is a one-to-one mapping 
 </div>  
 
 <br>
-<div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/deployment/storage_class.svg" width="400"></div>
+<div style="text-align:center"><img src ="{{ site.base }}/img/blog/deployment/storage_class.svg" width="400"></div>
 <br> 
 <br>
 
@@ -86,7 +86,7 @@ Remember that the storage class ID is implicitly ordering the storage tiers. Dur
 </div>
 
 <br>
-<div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/deployment/timeline.svg" width="300"></div>
+<div style="text-align:center"><img src ="{{ site.base }}/img/blog/deployment/timeline.svg" width="300"></div>
 <br> 
 <br>
 
@@ -115,7 +115,7 @@ During the deployment of Crail, one has to decide on the storage capacity of eac
 </div> 
 
 <br>
-<div style="text-align:center"><img src ="http://127.0.0.1:4000/img/blog/deployment/resource_provisioning.svg" width="400"></div>
+<div style="text-align:center"><img src ="{{ site.base }}/img/blog/deployment/resource_provisioning.svg" width="400"></div>
 <br> 
 <br>
 
