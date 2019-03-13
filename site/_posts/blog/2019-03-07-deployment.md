@@ -37,7 +37,7 @@ Remember that Crail is a tiered storage system where each storage tier consists 
 
 <div style="text-align: justify"> 
 <p>
-Remember that a Crail storage server is entirely a control path entity, responsible only for registering storage resources (and corresponding access endpoints) with Crail metadata servers and for monitoring the health of the storage resources. Therefore, a storage server does not necessarily need to run co-located with the storage resource it exports. For instance, one may export an all-flash storage enclosure in Crail by deploying a Crail storage server on one of the compute nodes. 
+Remember that a Crail storage server is entirely a control path entity, responsible only for registering storage resources (and corresponding access endpoints) with Crail metadata servers and for continous reporting of the health status of the associated storage resources. Therefore, a storage server does not necessarily need to run co-located with the storage resource it exports. For instance, one may export an all-flash storage enclosure in Crail by deploying a Crail storage server on one of the compute nodes. 
  </p>
  </div>
  
