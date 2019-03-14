@@ -121,7 +121,7 @@ During the deployment of Crail, one has to decide on the storage capacity of eac
 
 <div style="text-align: justify"> 
 <p>
-Ideally, we would want individual storage tiers to be elastic in a way that storage capacities can be adjutsed dynamically (and automatically) based on the load. Currently, Crail does not provide elastic storage tiers (adding storage servers on the fly is always possible, but not removing). In a recent research system named Pocket, however, we have been exploring how to build elastic storage in the context of serverless computing and in the future we might integrate some of these ideas into Crail as well. Have a look at the <a href="https://www.usenix.org/system/files/osdi18-klimovic.pdf">Pocket OSDI'18</a> paper for more details or check out the system at <a href="https://github.com/stanford-mast/pocket">https://github.com/stanford-mast/pocket</a>. 
+Ideally, we would want individual storage tiers to be elastic in a way that storage capacities can be adjutsed dynamically (and automatically) based on the load. Currently, Crail does not provide elastic storage tiers (adding storage servers on the fly is always possible, but not removing). A recent research project has been exploring how to build elastic storage in the context of serverless computing and in the future we might integrate some of these ideas into Crail as well. Have a look at the <a href="https://www.usenix.org/system/files/osdi18-klimovic.pdf">Pocket OSDI'18</a> paper for more details or check out the system at <a href="https://github.com/stanford-mast/pocket">https://github.com/stanford-mast/pocket</a>. 
 </p>
 </div>  
 
