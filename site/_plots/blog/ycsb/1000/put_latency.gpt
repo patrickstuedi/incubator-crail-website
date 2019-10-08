@@ -1,12 +1,13 @@
 set term pdf truecolor size 2.5,2.2 font "Times-Roman, 12"
 
-set output "put_latency_100.pdf"
+set output "put_latency_100K.pdf"
 
-set title "KV Size: 1KB"
-set xrange [0:200]
+set title "PUT KV Size: 100KB"
+set xrange [0:400]
 set yrange [0:1]
 set xlabel "latency [us]"
 set ylabel "CDF"
+set xtics 0, 100, 400
 
 
 set style line 1 lc rgb "#4dafa4" lw 4
@@ -22,9 +23,9 @@ set style data lines
 set nokey
 
 
-plot "crail_dram_put.dat" using 2:($3/2477) smooth bezier ti "Crail - DRAM", \
- "crail_optane_put.dat" using 2:($3/2477) smooth bezier ti "Crail - Optane",\
- "ramcloud_dram_put.dat" using 2:($3/2477) smooth bezier ti "Ramcloud",\
- "as_optane_put.dat" using 2:($3/2477) smooth bezier ti "Airospike - Optane"
+plot "crail_dram_put.dat" using 2:($3/2488) smooth bezier ti "Crail - DRAM", \
+ "crail_optane_put.dat" using 2:($3/2533) smooth bezier ti "Crail - Optane",\
+ "ramcloud_dram_put.dat" using 2:($3/455) smooth bezier ti "Ramcloud",\
+ "as_optane_put.dat" using 2:($3/2527) smooth bezier ti "Airospike - Optane"
 
 

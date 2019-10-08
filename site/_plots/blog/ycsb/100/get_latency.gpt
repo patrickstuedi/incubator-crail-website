@@ -1,8 +1,8 @@
 set term pdf truecolor size 2.5,2.2 font "Times-Roman, 12"
 
-set output "get_latency_100.pdf"
+set output "get_latency_1k.pdf"
 
-set title "KV Size: 1KB"
+set title "GET, KV Size: 1KB"
 set xrange [0:200]
 set yrange [0:1]
 set xlabel "latency [us]"
